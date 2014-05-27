@@ -1,0 +1,33 @@
+div#container {
+	width: 750px;
+}
+.contents {
+	left: 170px; width: auto; position: absolute; background-color: rgb(255, 255, 240);
+}
+.menu {
+	width: 150px; background-color: rgb(255, 255, 170);
+}
+h1 {
+	background: url("images/heading_bg.gif") repeat-x left bottom rgb(255, 255, 255); margin: 0px 0px 20px; padding: 10px; color: rgb(25, 25, 112); font-size: 24px; border-top-color: rgb(8, 80, 178); border-bottom-color: rgb(204, 204, 204); border-top-width: 7px; border-bottom-width: 3px; border-top-style: solid; border-bottom-style: solid;
+}
+h2 {
+	color: rgb(255, 69, 0); font-size: 90%; margin-top: 0px;
+}
+p {
+	line-height: 150%; font-size: 87.5%;
+}
+strong {
+	font-size: 110%;
+}
+a {
+	
+}
+a:hover {
+	font-size: 12pt; background-color: moccasin;
+}
+input.inputform:focus {
+	border: 3px solid lime; color: rgb(204, 0, 0); background-color: rgb(255, 255, 204);
+}
+textarea:focus {
+	border: 3px solid lime; color: rgb(204, 0, 0); background-color: rgb(255, 255, 204);
+}

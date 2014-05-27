@@ -1,0 +1,63 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
+<title>米販売システム_商品購入</title>
+<body>
+<h1>ログイン（会員）　→　注文内容確認　→　完了<h1>
+
+<!--買い物のかごの内容を表示、確認 -->
+<table border="1" align="center">
+<caption><h3>買い物かごには、以下の商品が入ってます。</h3></caption>
+<tr align="center" valign="center"><td>商品名</td><td>単価（税込）</td><td>注文数</td><td>小計（税込）</td></tr>
+<tr align="center" valign="center"><td>こめこめタイフーン</td><td>1,223円</td><td>10</td><td>12,230円</td></tr>
+<!--
+	for(int)
+-->
+<tr align="center" valign="center"><td>合計</td><td></td><td></td><td>12,230円</td></tr>
+</table>
+
+<!--会員が行う処理 -->
+<table border="3" align="center">
+<caption><h3>1.注文者情報入力</h3></caption>
+<form>
+<tr><td colspan="3">会員の方</td></tr>
+<tr align="center" valign="center" ><td colspan="3">下のフォームにユーザID、パスワードを入力して「次へ」ボタンを押してください。</td></tr> 
+<tr><td>会員コード　　　</td><td><input type="text" name="m_code" size="35" maxlength="7" /></td><td rowspan="2" >会員情報を変更されたい方は<a href="/" >こちら</a></td></tr>
+<tr><td>パスワード　　　</td><td><input type="text" name="m_pass" size="35" maxlength="4" /></td></tr>
+<tr align="center" valign="center"><td colspan="3" ><input type="submit" value="次へ" /></td></tr>
+</form>
+</table>
+
+<!--非会員が行う処理 -->
+<table border="3" align="center">
+<caption><h3>1.注文者情報入力</h3></caption>
+<form>
+<tr><td colspan="3">会員登録をされていない方</td></tr>
+<tr align="center" valign="center" ><td colspan="3">下のフォームにお客様のお名前、ご住所、電話番号、メールアドレスを入力し、<br>「次へ」ボタンを押してください。
+米販売システムでは、会員登録をされていなくてもお買い物ができます。<br> ※お買い物時のポイントがつきませんのでご注意ください。<br>
+ 必須の項目は必ず入力してください。<br> 
+丸付き数字、ローマ数字、括弧株などの機種依存文字は入力できません。 </td></tr> 
+<tr><td>会員コード　　　</td><td><input type="text" name="m_code" size="35" maxlength="7" /></td><td rowspan="2" >会員情報を変更されたい方は<a href="/" >こちら</a></td></tr>
+<tr><td>パスワード　　　</td><td><input type="text" name="m_pass" size="35" maxlength="4" /></td></tr>
+<tr align="center" valign="center"><td colspan="3" ><input type="submit" value="次へ" /></td></tr>
+</form>
+</table>
+
+
+<p>会員情報入力</p>
+  <table border="1">
+    <tr>
+      <td>名前</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>メッセージ</td>
+      <td></td>
+    </tr>
+  </table>
+
+</body>
+</html>
