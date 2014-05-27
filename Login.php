@@ -6,7 +6,7 @@
 <body>
 <?php
 
-$con = mysql_connect('172.20.17.202', 'root', '1234');
+$con = mysql_connect('172.20.17.202', 'admin', '1111');
 if (!$con) {
   exit('データベースに接続できませんでした。');
 }
