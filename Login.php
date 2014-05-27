@@ -23,7 +23,7 @@ if (!$result) {
 
 $result = mysql_query('SELECT * FROM member', $con);
 while ($data = mysql_fetch_array($result)) {
-  echo '<p>' . $data['no'] . ':' . $data['name'] . ':' . $data['tel'] . "</p>\n";
+  echo '<p>' . $data['m_code'] . ':' . $data['m_pass'] . ':' . $data['m_name'] . ':' . $data['m_add'] . ':' . $data['m_tel'] . ':' . $data['m_mail'] ."</p>\n";
 }
 
 $con = mysql_close($con);
