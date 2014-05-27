@@ -1,24 +1,24 @@
-<html>
+Ôªø<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ÉçÉOÉCÉì</title>
+<title>„É≠„Ç∞„Ç§„É≥</title>
 </head>
 <body>
 <?php
 
 $con = mysql_connect('172.20.17.202', 'root', '1234');
 if (!$con) {
-  exit('ÉfÅ[É^ÉxÅ[ÉXÇ…ê⁄ë±Ç≈Ç´Ç‹ÇπÇÒÇ≈ÇµÇΩÅB');
+  exit('„Éá„Éº„Çø„Éô„Éº„Çπ„Å´Êé•Á∂ö„Åß„Åç„Åæ„Åõ„Çì„Åß„Åó„Åü„ÄÇ');
 }
 
 $result = mysql_select_db('riceshop', $con);
 if (!$result) {
-  exit('ÉfÅ[É^ÉxÅ[ÉXÇëIëÇ≈Ç´Ç‹ÇπÇÒÇ≈ÇµÇΩÅB');
+  exit('„Éá„Éº„Çø„Éô„Éº„Çπ„ÇíÈÅ∏Êäû„Åß„Åç„Åæ„Åõ„Çì„Åß„Åó„Åü„ÄÇ');
 }
 
 $result = mysql_query('SET NAMES utf8', $con);
 if (!$result) {
-  exit('ï∂éöÉRÅ[ÉhÇéwíËÇ≈Ç´Ç‹ÇπÇÒÇ≈ÇµÇΩÅB');
+  exit('ÊñáÂ≠ó„Ç≥„Éº„Éâ„ÇíÊåáÂÆö„Åß„Åç„Åæ„Åõ„Çì„Åß„Åó„Åü„ÄÇ');
 }
 
 $result = mysql_query('SELECT * FROM member', $con);
@@ -28,7 +28,7 @@ while ($data = mysql_fetch_array($result)) {
 
 $con = mysql_close($con);
 if (!$con) {
-  exit('ÉfÅ[É^ÉxÅ[ÉXÇ∆ÇÃê⁄ë±Çï¬Ç∂ÇÁÇÍÇ‹ÇπÇÒÇ≈ÇµÇΩÅB');
+  exit('„Éá„Éº„Çø„Éô„Éº„Çπ„Å®„ÅÆÊé•Á∂ö„ÇíÈñâ„Åò„Çâ„Çå„Åæ„Åõ„Çì„Åß„Åó„Åü„ÄÇ');
 }
 
 ?>
