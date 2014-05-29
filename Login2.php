@@ -8,7 +8,7 @@
       $m_code = $_POST['m_code'];
       $m_pass = $_POST['m_pass']
       print ("次のデータを受け取りました<br />");
-      print ("名前：$name<br />");
+      print ("名前：$m_code<br />");
       $con = mysql_connect('172.20.17.202','admin','1111');
       if (!$con) {
         exit('データベースに接続できませんでした。');
