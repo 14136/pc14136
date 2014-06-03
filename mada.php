@@ -4,6 +4,6 @@
     <title>まだ完成していないページです</title>
   </head>
   <body>
-    <p>このページは作成中です<img src="era.png"></p>
+    <center><p>このページは作成中です<img src="era.png"></p></center>
   </body>
 </html>
