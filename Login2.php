@@ -16,8 +16,8 @@
     exit('文字コードを指定できませんでした。');
   }
 
-  $result = mysql_query("SELECT count(m_code) FROM member WHERE m_code = $m_code and m_pass = $m_pass" , $con);
-  if ($result == '1'){
+  $result = mysql_query("SELECT m_code FROM member WHERE m_code = ". $m_code . " and m_pass = " . $m_pass , $con);
+  if (mysql_num_rows($result) == 1){
     header('Location: https://www.google.co.jp/');
   }else{
     header('Location: http://172.20.17.202/kome/LoginFailure.php');
