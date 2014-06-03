@@ -15,7 +15,7 @@
         </tr>
         <tr>
           <td>パスワード</td>
-          <td><input type="text" name="m_pass"></td>
+          <td><input type="password" maxlength="4" name="m_pass"></td>
           <td colspan="2" align="center"><input type="submit" value="送信"></td>
         </tr>
       </table>
