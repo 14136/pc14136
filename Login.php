@@ -5,8 +5,8 @@
   </head>
   <body>
     <p>会員コードとパスワードを入力してください</p>
-    <p>会員コード：3</p>
-    <p>パスワード：1111</p>
+    <p>会員コード：9</p>
+    <p>パスワード：7891</p>
     <form action="Login2.php" method="post">
       <table border="1">
         <tr>
