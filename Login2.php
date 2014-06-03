@@ -1,6 +1,6 @@
 <?php
   $m_code = $_POST['m_code'];
-  $m_pass = $_POST['m_pass']
+  $m_pass = $_POST['m_pass'];
   $con = mysql_connect('172.20.17.202','admin','1111');
   if (!$con) {
     exit('データベースに接続できませんでした。');
