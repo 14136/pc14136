@@ -5,7 +5,7 @@
   </head>
   <body>
     <?php
-      print("<p>" . $_SESSION['s_name'] . "さんようこそ</p>");
+      print("<p>".$_SESSION['s_name']."さんようこそ</p>");
     ?>
     <p><a href="http://172.20.17.202/kome/mada.php">商品登録</a></p>
     <p><a href="http://172.20.17.202/kome/mada.php">商品情報登録</a></p>
