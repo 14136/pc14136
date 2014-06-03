@@ -5,6 +5,7 @@
   </head>
   <body>
     <?php
+      session_start();
       print("<p>".$_SESSION['s_name']."さんようこそ</p>");
     ?>
     <p><a href="http://172.20.17.202/kome/mada.php">商品登録</a></p>
