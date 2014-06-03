@@ -1,30 +1,30 @@
-<?php
+ï»¿<?php
   $s_code = $_POST['s_code'];
   $s_pass = $_POST['s_pass'];
   $con = mysql_connect('172.20.17.202','admin','1111');
   if (!$con) {
-    exit('ƒf[ƒ^ƒx[ƒX‚ÉÚ‘±‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
+    exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«æŽ¥ç¶šã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
   }
 
   $result = mysql_select_db('riceshop', $con);
   if (!$result) {
-    exit('ƒf[ƒ^ƒx[ƒX‚ð‘I‘ð‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
+    exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠžã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
   }
 
   $result = mysql_query('SET NAMES utf8', $con);
   if (!$result) {
-    exit('•¶ŽšƒR[ƒh‚ðŽw’è‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
+    exit('æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’æŒ‡å®šã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
   }
 
   $result = mysql_query("SELECT s_code FROM s_member WHERE s_code = ". $s_code . " and s_pass = " . $s_pass , $con);
   if (mysql_num_rows($result) == 1){
-    header('Location: https://172.20.17.202/kome/SMemberMenu.php');
+    header('Location: http://172.20.17.202/kome/SMemberMenu.php');
   }else{
     header('Location: http://172.20.17.202/kome/LoginFailure.php');
   }
 
   $con = mysql_close($con);
   if (!$con) {
-    exit('ƒf[ƒ^ƒx[ƒX‚Æ‚ÌÚ‘±‚ð•Â‚¶‚ç‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B');
+    exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã¨ã®æŽ¥ç¶šã‚’é–‰ã˜ã‚‰ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚');
   }
 ?>
