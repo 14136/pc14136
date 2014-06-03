@@ -18,7 +18,7 @@
 
   $result = mysql_query("SELECT s_code FROM s_member WHERE s_code = ". $s_code . " and s_pass = " . $s_pass , $con);
   if (mysql_num_rows($result) == 1){
-    header('Location: https://www.google.co.jp/');
+    header('Location: https://172.20.17.202/kome/SMemberMenu.php');
   }else{
     header('Location: http://172.20.17.202/kome/LoginFailure.php');
   }
