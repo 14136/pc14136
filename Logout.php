@@ -18,5 +18,5 @@
 
   //最終的に、セッションを破壊する
   session_destroy();
-  header('Location: https://172.20.17.202/kome/Logout2.php');
+  header('Location: http://172.20.17.202/kome/Logout2.php');
 ?>

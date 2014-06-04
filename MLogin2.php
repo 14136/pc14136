@@ -18,7 +18,7 @@
 
   $result = mysql_query("SELECT m_code FROM member WHERE m_code = ". $m_code . " and m_pass = " . $m_pass , $con);
   if (mysql_num_rows($result) == 1){
-    header('Location: https://172.20.17.202/kome/mada.php');
+    header('Location: http://172.20.17.202/kome/mada.php');
   }else{
     header('Location: http://172.20.17.202/kome/LoginFailure.php');
   }
