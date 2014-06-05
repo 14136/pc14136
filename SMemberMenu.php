@@ -10,7 +10,7 @@
     ?>
     <p><a href="http://172.20.17.202/kome/mada.php">商品情報登録</a></p>
     <p><a href="http://172.20.17.202/kome/mada.php">商品情報更新</a></p>
-    <p><a href="http://172.20.17.202/kome/mada.php">注文履歴確認</a></p>
+    <p><a href="http://172.20.17.202/kome/OHCheck.php">注文履歴確認</a></p>
     <p><a href="http://172.20.17.202/kome/mada.php">販売会員の情報更新</a></p>
     <p><a href="http://172.20.17.202/kome/Logout.php">ログアウト</a></p>
   </body>
