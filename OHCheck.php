@@ -47,4 +47,4 @@ SELECT * FROM goods,s_member,history,member
 WHERE s_member.s_code = goods.g_s_code
 AND goods.g_code = history.h_g_code
 AND member.m_code = history.h_m_code
-AND s_member.s_code = 1;
+AND s_member.s_code = 1;1
