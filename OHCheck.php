@@ -6,7 +6,7 @@
   <body>
     <?php
       session_start();
-      $s_code = $_SESSION['s_code']
+      $s_code = $_SESSION['s_code'];
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
