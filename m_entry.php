@@ -25,7 +25,7 @@
           	<tr><td>パスワード<font color="#FF0000">(必須)*半角英数字4文字</td><td><input type="password" name="m_pass"size="10" maxlength="4"></td></tr>
         </table>
         <input type="submit" name="m_entry" value="登録">
-		<h5><a href="/" >メインメニューに戻る</a></h5>
+		<h5><a href="mainmenu.php" >メインメニューに戻る</a></h5>
 
         
 </form>
