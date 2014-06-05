@@ -6,6 +6,7 @@
   <body>
     <?php
       session_start();
+      $s_code = $_SESSION['s_code']
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
@@ -28,7 +29,7 @@
                             "INNER JOIN history ON g_code = h_g_code" .
                             "INNER JOIN member ON m_code = h_m_code" .
                             "LEFT JOIN discount ON d_g_code = g_code AND h_date BETWEEN d_open AND d_end" .
-                            "WHERE s_code =" . $_SESSION['s_code'] , $con);
+                            "WHERE s_code =" . $s_code , $con);
       while($data = mysql_fetch_array($result)){
         echo '<p>' . $data['g_name'] . ':' . $data['g_pri'] . ':' . $data['h_date'] . "</p>\n";
       }
