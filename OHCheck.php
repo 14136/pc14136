@@ -22,9 +22,15 @@
         exit('文字コードを指定できませんでした。');
       }
 
-      $result = mysql_query("SELECT * FROM history WHERE s_code = ". $_SESSION['s_code'] . " and s_pass = ", $con);
+      $result = mysql_query(
+                            "SELECT g_name,g_pri,h_date,m_name,m_add,m_tel,m_mail,d_pri" 
+                            "FROM goods INNER JOIN s_member ON g_s_code = s_code"
+                            "INNER JOIN history ON g_code = h_g_code"
+                            "INNER JOIN member ON m_code = h_m_code"
+                            "LEFT JOIN discount ON d_g_code = g_code AND h_date BETWEEN d_open AND d_end"
+                            "WHERE s_code =" . $_SESSION['s_code'] , $con);
       while($data = mysql_fetch_array($result)){
-        echo '<p>' . $data['no'] . ':' . $data['name'] . ':' . $data['tel'] . "</p>\n";
+        echo '<p>' . $data['g_name'] . ':' . $data['g_pri'] . ':' . $data['h_date'] . "</p>\n";
       }
 
       $con = mysql_close($con);
@@ -37,14 +43,11 @@
 </html>
 
 
-商品テーブル
-履歴テーブル
-販売会員テーブル
-値引きテーブル
-会員テーブル
-
-SELECT * FROM goods,s_member,history,member
-WHERE s_member.s_code = goods.g_s_code
-AND goods.g_code = history.h_g_code
-AND member.m_code = history.h_m_code
-AND s_member.s_code = 1;1
+<!--
+SELECT g_name,g_pri,h_date,m_name,m_add,m_tel,m_mail,d_pri 
+FROM goods INNER JOIN s_member ON g_s_code = s_code
+INNER JOIN history ON g_code = h_g_code
+INNER JOIN member ON m_code = h_m_code
+LEFT JOIN discount ON d_g_code = g_code AND h_date BETWEEN d_open AND d_end
+WHERE s_code = 1;
+-->
