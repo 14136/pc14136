@@ -26,7 +26,6 @@
         </table>
         <input type="submit" name="m_entry" value="登録">
 		<h5><a href="mainmenu.php" >メインメニューに戻る</a></h5>
-
         
 </form>
 
