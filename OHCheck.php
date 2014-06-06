@@ -34,9 +34,9 @@
       while($data = mysql_fetch_array($result)){
         echo '<tr><td>' . $data['h_date'];
           if($data['h_pri'] == 0){
-             echo '未発送' ;
+             echo '</td><td>未発送' ;
           }else{
-             echo '発送済み' ;
+             echo '</td><td>発送済み' ;
           }
           if($data['h_name'] == null){
              echo '</td><td>' . $data['m_name'] . 
