@@ -33,7 +33,7 @@
                             "WHERE s_code =" . $s_code , $con);
       while($data = mysql_fetch_array($result)){
         echo '<tr><td>' . $data['h_date'];
-          if($data['m_name'] == null){
+          if($data['h_m_code'] == 0){
              echo '</td><td>' . $data['h_name'] . 
                   '</td><td>' . $data['h_add'] . 
                   '</td><td>' . $data['h_tel'];
