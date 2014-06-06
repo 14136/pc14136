@@ -4,7 +4,7 @@
     <title>注文履歴確認</title>
   </head>
   <body>
-    <table border=1><tr><th>注文日</th><th>発送状態</th><th>顧客名</th><th>顧客住所</th><th>顧客TEL</th><th>顧客メールアドレス</th><th>注文商品</th><th>価格</th><th>値引き額</th></tr>
+    <table border=1><tr><th>注文日</th><th>発送状態</th><th>顧客名</th><th>顧客住所</th><th>顧客TEL</th><th>顧客メールアドレス</th><th>注文商品</th><th>数量</th><th>単価</th><th>一点当たりの値引き額</th></tr>
     <?php
       session_start();
       $s_code = $_SESSION['s_code'];
@@ -50,6 +50,7 @@
                   '</td><td>' . $data['h_mail'];
           }
         echo '</td><td>' . $data['g_name'] . 
+             '</td><td>' . $data['h_phot'] . 
              '</td><td>' . $data['g_pri'] . 
              '</td><td>' . $data['d_pri'] . 
              '</td></tr>';
