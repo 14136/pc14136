@@ -4,7 +4,7 @@
     <title>注文履歴確認</title>
   </head>
   <body>
-    <table border=1><tr><th>注文日</th><th>顧客名</th><th>顧客住所</th><th>顧客TEL</th><th>注文商品</th><th>価格</th><th>値引き額</th></tr>
+    <table border=1><tr><th>注文日</th><th>発送状態</th><th>顧客名</th><th>顧客住所</th><th>顧客TEL</th><th>顧客メールアドレス</th><th>注文商品</th><th>価格</th><th>値引き額</th></tr>
     <?php
       session_start();
       $s_code = $_SESSION['s_code'];
@@ -33,14 +33,21 @@
                             "WHERE s_code =" . $s_code , $con);
       while($data = mysql_fetch_array($result)){
         echo '<tr><td>' . $data['h_date'];
+          if($data['h_pri'] == 0){
+             echo '</td>未発送<td>' ;
+          }else{
+             echo '</td>発送済み<td>' ;
+          }
           if($data['h_name'] == null){
              echo '</td><td>' . $data['m_name'] . 
                   '</td><td>' . $data['m_add'] . 
-                  '</td><td>' . $data['m_tel'];
+                  '</td><td>' . $data['m_tel'] . 
+                  '</td><td>' . $data['m_mail'];
           }else{
              echo '</td><td>' . $data['h_name'] . 
                   '</td><td>' . $data['h_add'] . 
-                  '</td><td>' . $data['h_tel'];
+                  '</td><td>' . $data['h_tel'] . 
+                  '</td><td>' . $data['m_mail'];
           }
         echo '</td><td>' . $data['g_name'] . 
              '</td><td>' . $data['g_pri'] . 
