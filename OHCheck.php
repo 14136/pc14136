@@ -32,7 +32,14 @@
                             "LEFT JOIN discount ON d_g_code = g_code AND h_date BETWEEN d_open AND d_end " .
                             "WHERE s_code =" . $s_code , $con);
       while($data = mysql_fetch_array($result)){
-        echo '<tr><td>' . $data['h_date'] . '</td><td>' . $data['h_m_name'] . '</td><td>' . $data['m_add'] . '</td><td>' . $data['m_tel'] . '</td><td>' . $data['g_name'] . '</td><td>' . $data['g_pri'] . "</td><td>" . $data['d_pri'] . "</td></tr>";
+        echo '<tr><td>' . $data['h_date'] . 
+             '</td><td>' . $data['h_m_name'] . 
+             '</td><td>' . $data['m_add'] . 
+             '</td><td>' . $data['m_tel'] . 
+             '</td><td>' . $data['g_name'] . 
+             '</td><td>' . $data['g_pri'] . 
+             '</td><td>' . $data['d_pri'] . 
+             '</td></tr>';
       }
 
       $con = mysql_close($con);
