@@ -4,7 +4,7 @@
     <title>注文履歴確認</title>
   </head>
   <body>
-    <table><tr><th>注文日</th><th>顧客名</th><th>顧客住所</th><th>顧客TEL</th><th>注文商品</th><th>価格</th><th>値引き額</th></tr>
+    <table border=1><tr><th>注文日</th><th>顧客名</th><th>顧客住所</th><th>顧客TEL</th><th>注文商品</th><th>価格</th><th>値引き額</th></tr>
     <?php
       session_start();
       $s_code = $_SESSION['s_code'];
