@@ -4,6 +4,7 @@
     <title>注文履歴確認</title>
   </head>
   <body>
+    <table><tr><th>注文日</th><th>顧客名</th><th>顧客住所</th><th>顧客TEL</th><th>注文商品</th><th>価格</th><th>値引き額</th></tr>
     <?php
       session_start();
       $s_code = $_SESSION['s_code'];
@@ -31,7 +32,7 @@
                             "LEFT JOIN discount ON d_g_code = g_code AND h_date BETWEEN d_open AND d_end " .
                             "WHERE s_code =" . $s_code , $con);
       while($data = mysql_fetch_array($result)){
-        echo '<p>' . $data['g_name'] . ':' . $data['g_pri'] . ':' . $data['h_date'] . "</p>\n";
+        echo '<tr><td>' . $data['h_date'] . '</td><td>' . $data['h_m_name'] . '</td><td>' . $data['m_add'] . '</td><td>' . $data['m_tel'] . '</td><td>' . $data['g_name'] . '</td><td>' . $data['g_pri'] . "</td><td>" . $data['d_pri'] . "</td></tr>";
       }
 
       $con = mysql_close($con);
@@ -40,6 +41,7 @@
       }
 
     ?>
+    <table>
   </body>
 </html>
 
