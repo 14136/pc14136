@@ -20,6 +20,7 @@
 
         if (!$result_flag) {
         die('UPDATEクエリーが失敗しました。'.mysql_error());
+        print('<p>sippai</p>')
         }
       }
 
