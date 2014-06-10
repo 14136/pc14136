@@ -25,7 +25,7 @@
         exit('データベースとの接続を閉じられませんでした。');
       }
 
-
+      header('Location: http://172.20.17.202/kome/OHCheck.php');
 ?>
 
 <!--
