@@ -4,7 +4,8 @@
     <title>注文履歴確認</title>
   </head>
   <body>
-    <table border=1><tr><th>注文日</th><th>発送状態</th><th>顧客名</th><th>顧客住所</th><th>顧客TEL</th><th>顧客メールアドレス</th><th>注文商品</th><th>数量</th><th>単価</th><th>一点当たりの値引き額</th><th>請求金額</th></tr>
+    <form method="post" action="mada.php">
+    <table border=1><tr><th></th><th>注文日</th><th>発送状態</th><th>顧客名</th><th>顧客住所</th><th>顧客TEL</th><th>顧客メールアドレス</th><th>注文商品</th><th>数量</th><th>単価</th><th>一点当たりの値引き額</th><th>請求金額</th></tr>
     <?php
       session_start();
       $s_code = $_SESSION['s_code'];
@@ -32,7 +33,8 @@
                             "LEFT JOIN discount ON d_g_code = g_code AND h_date BETWEEN d_open AND d_end " .
                             "WHERE s_code =" . $s_code , $con);
       while($data = mysql_fetch_array($result)){
-        echo '<tr><td>' . $data['h_date'];
+        echo '<tr><td><input type="checkbox" name="h_code" value="' . $data['h_code'] . '">' . 
+             '<tr><td>' . $data['h_date'];
           if($data['h_pri'] == 0){
              echo '</td><td>未発送' ;
           }else{
@@ -64,6 +66,8 @@
 
     ?>
     <table>
+    <p><input type="submit" value="選択した注文を発送済にする"></p>
+    </form>
   </body>
 </html>
 
