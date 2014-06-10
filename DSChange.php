@@ -18,7 +18,7 @@
         exit('文字コードを指定できませんでした。');
       }
 
-      for($h_code[$i] < count($h_code)){
+      for($i = 0; $h_code[$i] < count($h_code) ; $i++){
         $sql = sprintf('UPDATE history SET h_pri = 1' . 
                       . 'WHERE h_code = ' . $h_code[$i] );
 
