@@ -13,8 +13,8 @@
       }
 
       for($i = 0; $i < count($_POST['h_code']) ; $i++){
-        $sql = sprintf("UPDATE history SET h_pri = 1 WHERE h_code = %s"
-           , quote_smart($_POST['h_code'][$i]));
+        $sql = sprintf("UPDATE history SET h_pri = 1 WHERE h_code = %s" , 
+                        quote_smart($_POST['h_code'][$i]));
 
         $result_flag = mysql_query($sql);
 
