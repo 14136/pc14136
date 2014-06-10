@@ -19,8 +19,8 @@
       }
 
       for($h_code[$i] < count($h_code)){
-        $sql = sprintf('UPDATE history SET h_pri = 1
-                        WHERE h_code = ' . $h_code[$i] );
+        $sql = sprintf('UPDATE history SET h_pri = 1' . 
+                      . 'WHERE h_code = ' . $h_code[$i] );
 
         $result_flag = mysql_query($sql);
 
