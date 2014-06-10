@@ -1,5 +1,5 @@
 ﻿<?php
-      $h_code = $_POST['h_code'];
+
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
         exit('データベースに接続できませんでした。');
@@ -15,7 +15,7 @@
 
       for($i = 0; $h_code[$i] < count($h_code) ; $i++){
         $sql = sprintf('UPDATE history SET h_pri = 1' . 
-                       'WHERE h_code = ' . $h_code[$i] );
+                       'WHERE h_code = ' . $_POST['h_code'][$i] );
 
         $result_flag = mysql_query($sql);
 
