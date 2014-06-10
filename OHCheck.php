@@ -34,7 +34,7 @@
                             "WHERE s_code =" . $s_code , $con);
       while($data = mysql_fetch_array($result)){
         echo '<tr><td><input type="checkbox" name="h_code" value="' . $data['h_code'] . '">' . 
-             '<tr><td>' . $data['h_date'];
+             '</td><td>' . $data['h_date'];
           if($data['h_pri'] == 0){
              echo '</td><td>未発送' ;
           }else{
