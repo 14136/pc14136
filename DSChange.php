@@ -12,7 +12,7 @@
         exit('文字コードを指定できませんでした。');
       }
 
-      for($i = 0; $_POST['h_code'][$i] < count($_POST['h_code']) ; $i++){
+      for($i = 0; $i < count($_POST['h_code']) ; $i++){
         $sql = sprintf("UPDATE history SET h_pri = 1 WHERE h_code = %s"
            , quote_smart($_POST['h_code'][$i]));
 
