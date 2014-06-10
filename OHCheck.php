@@ -36,7 +36,7 @@
         echo '<tr><td><input type="checkbox" name="h_code[]" value="' . $data['h_code'] . '">' . 
              '</td><td>' . $data['h_date'];
           if($data['h_pri'] == 0){
-             echo '</td><td>未発送' ;
+             echo '</td><td><font color=red>未発送</font>' ;
           }else{
              echo '</td><td>発送済み' ;
           }
@@ -66,7 +66,7 @@
 
     ?>
     <table>
-    <p><input type="submit" value="選択した注文を発送済にする"></p>
+    <p><input type="submit" value="選択した注文を発送済みにする" name="sumi"><input type="submit" value="選択した注文を未発送にする" name="mi"></p>
     </form>
   </body>
 </html>

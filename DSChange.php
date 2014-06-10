@@ -12,19 +12,25 @@
         exit('文字コードを指定できませんでした。');
       }
 
-
-      for($i = 0; $i < count($_POST['h_code']) ; $i++){
-        $result = mysql_query('UPDATE history SET h_pri = 1 WHERE h_code = ' . $_POST['h_code'][$i] );
-        if (!$result) {
-          die('クエリーが失敗しました。'.mysql_error());
-        }
+      if(isset($_POST['sumi'])){
+        for($i = 0; $i < count($_POST['h_code']) ; $i++){
+          $result = mysql_query('UPDATE history SET h_pri = 1 WHERE h_code = ' . $_POST['h_code'][$i] );
+          if (!$result) {
+            die('クエリーが失敗しました。'.mysql_error());
+          }
+        } 
+      }elseif(isset($_POST['mi'])){
+        for($i = 0; $i < count($_POST['h_code']) ; $i++){
+          $result = mysql_query('UPDATE history SET h_pri = 0 WHERE h_code = ' . $_POST['h_code'][$i] );
+          if (!$result) {
+            die('クエリーが失敗しました。'.mysql_error());
+          }
+        } 
       }
-
       $con = mysql_close($con);
       if(!$con){
         exit('データベースとの接続を閉じられませんでした。');
       }
-
       header('Location: http://172.20.17.202/kome/OHCheck.php');
 ?>
 
