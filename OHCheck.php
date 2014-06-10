@@ -4,7 +4,7 @@
     <title>注文履歴確認</title>
   </head>
   <body>
-    <form method="post" action="mada.php">
+    <form method="post" action="DSChange.php">
     <table border=1><tr><th></th><th>注文日</th><th>発送状態</th><th>顧客名</th><th>顧客住所</th><th>顧客TEL</th><th>顧客メールアドレス</th><th>注文商品</th><th>数量</th><th>単価</th><th>一点当たりの値引き額</th><th>請求金額</th></tr>
     <?php
       session_start();
