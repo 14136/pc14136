@@ -12,14 +12,11 @@
         exit('文字コードを指定できませんでした。');
       }
 
+
       for($i = 0; $i < count($_POST['h_code']) ; $i++){
-        $sql = sprintf("UPDATE history SET h_pri = 1 WHERE h_code = %s" , 
-                        quote_smart($_POST['h_code'][$i]));
-
-        $result_flag = mysql_query($sql);
-
-        if (!$result_flag) {
-          die('UPDATEクエリーが失敗しました。'.mysql_error());
+        $result = mysql_query('UPDATE history SET h_pri = 1 WHERE h_code = ' . $_POST['h_code'][$i] );
+        if (!$result) {
+          die('クエリーが失敗しました。'.mysql_error());
         }
       }
 
