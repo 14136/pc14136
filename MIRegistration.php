@@ -6,7 +6,7 @@
   <body>
     <p>商品情報を登録します</p>
 
-    <form action="MIRegistration2.php" method="post" enctype="multipart/form-data">
+    <form action="MIRegistration2.php" method="post" enctype="multipart/form-data" accept="image/jpeg,image/png,image/gif">
       <table border="1">
         <tr>
           <th>商品名</th>
