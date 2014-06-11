@@ -19,7 +19,7 @@
                                                $_POST['g_name'] . ',' . 
                                                $_POST['g_exp'] . ',' . 
                                                $_POST['g_phot'] . ',' . 
-                                               $_POST['g_pri'] . ')';
+                                               $_POST['g_pri'] . ')');
       if (!$result) {
         die('クエリーが失敗しました。'.mysql_error());
       }
