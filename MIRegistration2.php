@@ -15,10 +15,10 @@
       }
 
       $result = mysql_query('INSERT INTO goods (g_code,g_s_code,g_name,g_exp,g_phot,g_pri)' .
-                             'VALUES (null,' . $_POST['s_code'] . ',' . 
+                             'VALUES (null,' . $_SESSION['s_code'] . ',' . 
                                                $_POST['g_name'] . ',' . 
                                                $_POST['g_exp'] . ',' . 
-                                               $_POST['g_phot'] . ',' . 
+                                               $_FILES['g_phot'] . ',' . 
                                                $_POST['g_pri'] . ')');
       if (!$result) {
         die('クエリーが失敗しました。'.mysql_error());
