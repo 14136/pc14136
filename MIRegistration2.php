@@ -18,7 +18,7 @@
                              'VALUES (null,' . $_SESSION['s_code'] . ',' . 
                                                $_POST['g_name'] . ',' . 
                                                $_POST['g_exp'] . ',' . 
-                                               $_FILES['g_phot']['tmp_name'] . ',' . 
+                                               file_get_contents($_FILES['g_phot']["tmp_name"]) . ',' . 
                                                $_POST['g_pri'] . ')');
       if (!$result) {
         die('クエリーが失敗しました。'.mysql_error());
