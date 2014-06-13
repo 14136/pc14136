@@ -25,7 +25,7 @@
 
       // ファイル取得
       $imgdat = file_get_contents($upfile);
-      $imgdat = mysql_real_escape_string($imgdat);
+      //$imgdat = mysql_real_escape_string($imgdat);
 
 
       $result = mysql_query('INSERT INTO goods (g_code,g_s_code,g_name,g_exp,g_phot,g_pri)' .
