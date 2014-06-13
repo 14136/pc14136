@@ -17,7 +17,7 @@
 
 
 
-      $upfile = $_FILES["g_phot"]["tmp_name"];
+      $upfile = $_FILES['g_phot']['tmp_name'];
       if ($upfile==""){
         print("ファイルのアップロードができませんでした。<BR>\n");
         exit;
