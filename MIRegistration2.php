@@ -1,17 +1,17 @@
-ï»¿<?php
+<?php
       session_start();
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
-        exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«æ¥ç¶šã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
+        exit('ƒf[ƒ^ƒx[ƒX‚ÉÚ‘±‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
       }
       $result = mysql_select_db('riceshop', $con);
         if(!$result){
-          exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
+          exit('ƒf[ƒ^ƒx[ƒX‚ğ‘I‘ğ‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
         }
       $result = mysql_query('SET NAMES utf8', $con);
       if(!$result){
-        exit('æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’æŒ‡å®šã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
+        exit('•¶šƒR[ƒh‚ğw’è‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
       }
       
 
@@ -19,30 +19,30 @@
 
       $upfile = $_FILES["g_phot"]["tmp_name"];
       if ($upfile==""){
-        print("ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ãŒã§ãã¾ã›ã‚“ã§ã—ãŸã€‚<BR>\n");
+        print("ƒtƒ@ƒCƒ‹‚ÌƒAƒbƒvƒ[ƒh‚ª‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B<BR>\n");
         exit;
       }
 
-      // ãƒ•ã‚¡ã‚¤ãƒ«å–å¾—
-      $imgdat = file_get_contents($upfile);
+      // ƒtƒ@ƒCƒ‹æ“¾
+      $imgdat = addslashes(file_get_contents($upfile));
       //$imgdat = mysql_real_escape_string($imgdat);
 
 
-      $result = mysql_query('INSERT INTO goods (g_code,g_s_code,g_name,g_exp,g_phot,g_pri)' .
+      $result = mysql_query('INSERT INTO goods (g_code,g_s_code,g_name,g_exp,g_phot,g_pri) ' .
                              'VALUES (null,' . $_SESSION['s_code'] . ',' . 
                                                $_POST['g_name'] . ',' . 
                                                $_POST['g_exp'] . ',' . 
                                                $imgdat . ',' . 
                                                $_POST['g_pri'] . ')');
       if (!$result) {
-        die('ã‚¯ã‚¨ãƒªãƒ¼ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚'.mysql_error());
+        die('ƒNƒGƒŠ[‚ª¸”s‚µ‚Ü‚µ‚½B'.mysql_error());
       }
       
       $_SESSION['s_g_code'] = mysql_insert_id();
 
       $con = mysql_close($con);
       if(!$con){
-        exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã¨ã®æ¥ç¶šã‚’é–‰ã˜ã‚‰ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚');
+        exit('ƒf[ƒ^ƒx[ƒX‚Æ‚ÌÚ‘±‚ğ•Â‚¶‚ç‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B');
       }
       header('Location: http://172.20.17.202/kome/MIRegistration3.php');
 
