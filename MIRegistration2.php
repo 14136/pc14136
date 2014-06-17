@@ -1,5 +1,9 @@
 ﻿<?php
       session_start();
+      $s_code = $_SESSION['s_code'];
+      $g_name = $_POST['g_name'];
+      $g_exp = $_POST['g_exp'];
+      $g_pri = $_POST['g_pri'];
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
@@ -22,17 +26,17 @@ $fp = fopen( $_FILES['g_phot']['tmp_name'], 'rb');
 $size = filesize($_FILES['g_phot']['tmp_name']);
 
 //ファイルをバイナリ・モードで読み込む
-$imgdata = fread( $fp, $size );
+$g_phot = fread( $fp, $size );
 
 //ファイルを閉じる
 fclose($fp);
 
       $result = mysql_query("INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
-                             "VALUES (" . $_SESSION['s_code'] . ",'" . 
-                                               $_POST['g_name'] . "','" . 
-                                               $_POST['g_exp'] . "'," . 
-                                               $imgdata . "," . 
-                                               $_POST['g_pri'] . ")");
+                             "VALUES (" . $s_code . ",'" . 
+                                               $g_name . "','" . 
+                                               $g_exp . "'," . 
+                                               $g_phot . "," . 
+                                               $g_pri . ")");
       if (!$result) {
         die('クエリーが失敗しました。'.mysql_error());
       }
