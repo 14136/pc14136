@@ -50,7 +50,7 @@ fclose($fp);
       $result = mysql_query($sqlstr);
       if (!$result) {
         die('クエリーが失敗しました。'.mysql_error());
-      }else
+      }else{
         die('クエリーが成功しました。');
       }
       
