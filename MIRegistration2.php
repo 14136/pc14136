@@ -28,12 +28,12 @@
       //$imgdat = mysql_real_escape_string($imgdat);
 
 
-      $result = mysql_query('INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri) ' .
-                             'VALUES (' . $_SESSION['s_code'] . ',' . 
-                                               $_POST['g_name'] . ',' . 
-                                               $_POST['g_exp'] . ',' . 
-                                               $imgdat . ',' . 
-                                               $_POST['g_pri'] . ')');
+      $result = mysql_query("INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri) " .
+                             "VALUES (" . $_SESSION['s_code'] . "," . 
+                                               $_POST['g_name'] . "," . 
+                                               $_POST['g_exp'] . "," . 
+                                               $imgdat . "," . 
+                                               $_POST['g_pri'] . ")");
       if (!$result) {
         die('クエリーが失敗しました。'.mysql_error());
       }
