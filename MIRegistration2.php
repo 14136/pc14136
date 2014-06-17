@@ -20,26 +20,26 @@
 
 
       //実際にテンポラリファイルを開く
-$fp = fopen( $_FILES['g_phot']['tmp_name'], 'rb');
+      $fp = fopen( $_FILES['g_phot']['tmp_name'], 'rb');
 
-//ファイルサイズを取得する
-$size = filesize($_FILES['g_phot']['tmp_name']);
+      //ファイルサイズを取得する
+      $size = filesize($_FILES['g_phot']['tmp_name']);
 
-//ファイルをバイナリ・モードで読み込む
-$g_phot = fread( $fp, $size );
+      //ファイルをバイナリ・モードで読み込む
+      $g_phot = fread( $fp, $size );
 
-//ファイルを閉じる
-fclose($fp);
+      //ファイルを閉じる
+      fclose($fp);
 
 
       $sqlstr = "INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
-                             "VALUES (" . $s_code . ",'" . 
-                                               $g_name . "','" . 
-                                               $g_exp . "','" . 
-                                               mysql_real_escape_string($g_phot) . "'," . 
-                                               $g_pri . ")";
+                "VALUES (" . $s_code . ",'" . 
+                             $g_name . "','" . 
+                             $g_exp . "','" . 
+                             mysql_real_escape_string($g_phot) . "'," . 
+                             $g_pri . ")";
 
-      print($sqlstr);
+      //print($sqlstr);
 
       //$result = mysql_query("INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
       //                       "VALUES (" . $s_code . ",'" . 
@@ -47,9 +47,7 @@ fclose($fp);
          //                                      $g_exp . "'," . 
            //                                    $g_phot . "," . 
              //                                  $g_pri . ")");
- print('クエリー1');
       $result = mysql_query($sqlstr);
- print('クエリーが成功しました。2');
       if (!$result) {
         print('クエリーが失敗しました。'.mysql_error());
       }else{
