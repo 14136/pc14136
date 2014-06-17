@@ -37,7 +37,7 @@ fclose($fp);
                                                $g_name . "','" . 
                                                $g_exp . "','" . 
                                                $g_phot . "'," . 
-                                               $g_pri . ");";
+                                               $g_pri . ")";
 
       die($sqlstr);
 
@@ -47,7 +47,9 @@ fclose($fp);
          //                                      $g_exp . "'," . 
            //                                    $g_phot . "," . 
              //                                  $g_pri . ")");
+ die('クエリー1');
       $result = mysql_query($sqlstr);
+ die('クエリーが成功しました。2');
       if (!$result) {
         die('クエリーが失敗しました。'.mysql_error());
       }else{
