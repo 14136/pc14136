@@ -36,7 +36,7 @@ fclose($fp);
                              "VALUES (" . $s_code . ",'" . 
                                                $g_name . "','" . 
                                                $g_exp . "','" . 
-                                               $g_phot . "'," . 
+                                               mysql_real_escape_string($g_phot) . "'," . 
                                                $g_pri . ")";
 
       print($sqlstr);
