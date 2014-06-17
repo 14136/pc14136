@@ -16,10 +16,10 @@
 
 
       //実際にテンポラリファイルを開く
-$fp = fopen( $_FILES['upload']['tmp_name'], 'rb');
+$fp = fopen( $_FILES['g_phot']['tmp_name'], 'rb');
 
 //ファイルサイズを取得する
-$size = filesize($_FILES['upload']['tmp_name']);
+$size = filesize($_FILES['g_phot']['tmp_name']);
 
 //ファイルをバイナリ・モードで読み込む
 $imgdata = fread( $fp, $size );
