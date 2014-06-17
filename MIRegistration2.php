@@ -47,9 +47,11 @@ fclose($fp);
          //                                      $g_exp . "'," . 
            //                                    $g_phot . "," . 
              //                                  $g_pri . ")");
-      $result = mysql_query(sqlstr);
+      $result = mysql_query($sqlstr);
       if (!$result) {
         die('クエリーが失敗しました。'.mysql_error());
+      }else
+        die('クエリーが成功しました。');
       }
       
       $_SESSION['s_g_code'] = mysql_insert_id();
