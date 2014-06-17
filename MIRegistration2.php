@@ -24,7 +24,7 @@
       }
 
       // ƒtƒ@ƒCƒ‹Žæ“¾
-      $imgdat = base64_encode(file_get_contents($upfile));
+      $imgdat = file_get_contents($upfile);
       //$imgdat = mysql_real_escape_string($imgdat);
 
 
