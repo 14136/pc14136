@@ -37,7 +37,7 @@ fclose($fp);
                                                $g_name . "','" . 
                                                $g_exp . "','" . 
                                                $g_phot . "'," . 
-                                               $g_pri . ")";
+                                               $g_pri . ");";
 
       die($sqlstr);
 
