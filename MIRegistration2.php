@@ -9,10 +9,10 @@
         if(!$result){
           exit('データベースを選択できませんでした。');
         }
-      $result = mysql_query('SET NAMES utf8', $con);
-      if(!$result){
-        exit('文字コードを指定できませんでした。');
-      }
+      //$result = mysql_query('SET NAMES utf8', $con);
+      //if(!$result){
+      //  exit('文字コードを指定できませんでした。');
+      //}
       
 
 
