@@ -31,12 +31,22 @@ $g_phot = fread( $fp, $size );
 //ファイルを閉じる
 fclose($fp);
 
-      $result = mysql_query("INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
+      $sqlstr = "INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
                              "VALUES (" . $s_code . ",'" . 
                                                $g_name . "','" . 
                                                $g_exp . "'," . 
                                                $g_phot . "," . 
-                                               $g_pri . ")");
+                                               $g_pri . ")";
+
+      die($sqlstr);
+
+      //$result = mysql_query("INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
+      //                       "VALUES (" . $s_code . ",'" . 
+       //                                        $g_name . "','" . 
+         //                                      $g_exp . "'," . 
+           //                                    $g_phot . "," . 
+             //                                  $g_pri . ")");
+      $result = mysql_query(sqlstr);
       if (!$result) {
         die('クエリーが失敗しました。'.mysql_error());
       }
