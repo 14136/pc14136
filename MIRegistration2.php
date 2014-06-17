@@ -31,11 +31,12 @@ $g_phot = fread( $fp, $size );
 //ファイルを閉じる
 fclose($fp);
 
+
       $sqlstr = "INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
                              "VALUES (" . $s_code . ",'" . 
                                                $g_name . "','" . 
-                                               $g_exp . "'," . 
-                                               $g_phot . "," . 
+                                               $g_exp . "','" . 
+                                               $g_phot . "'," . 
                                                $g_pri . ")";
 
       die($sqlstr);
