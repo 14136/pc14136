@@ -1,29 +1,29 @@
-<?php
+ï»¿<?php
       session_start();
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
-        exit('ƒf[ƒ^ƒx[ƒX‚ÉÚ‘±‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
+        exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«æ¥ç¶šã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
       }
       $result = mysql_select_db('riceshop', $con);
         if(!$result){
-          exit('ƒf[ƒ^ƒx[ƒX‚ğ‘I‘ğ‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
+          exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
         }
-      //$result = mysql_query('SET NAMES utf8', $con);
-      //if(!$result){
-      //  exit('•¶šƒR[ƒh‚ğw’è‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
-      //}
+      $result = mysql_query('SET NAMES utf8', $con);
+      if(!$result){
+        exit('æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’æŒ‡å®šã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
+      }
       
 
 
 
       $upfile = $_FILES['g_phot']['tmp_name'];
       if ($upfile==""){
-        print("ƒtƒ@ƒCƒ‹‚ÌƒAƒbƒvƒ[ƒh‚ª‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B<BR>\n");
+        print("ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ãŒã§ãã¾ã›ã‚“ã§ã—ãŸã€‚<BR>\n");
         exit;
       }
 
-      // ƒtƒ@ƒCƒ‹æ“¾
+      // ãƒ•ã‚¡ã‚¤ãƒ«å–å¾—
       $imgdat = file_get_contents($upfile);
       //$imgdat = mysql_real_escape_string($imgdat);
 
@@ -35,14 +35,14 @@
                                                $imgdat . ',' . 
                                                $_POST['g_pri'] . ')');
       if (!$result) {
-        die('ƒNƒGƒŠ[‚ª¸”s‚µ‚Ü‚µ‚½B'.mysql_error());
+        die('ã‚¯ã‚¨ãƒªãƒ¼ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚'.mysql_error());
       }
       
       $_SESSION['s_g_code'] = mysql_insert_id();
 
       $con = mysql_close($con);
       if(!$con){
-        exit('ƒf[ƒ^ƒx[ƒX‚Æ‚ÌÚ‘±‚ğ•Â‚¶‚ç‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B');
+        exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã¨ã®æ¥ç¶šã‚’é–‰ã˜ã‚‰ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚');
       }
       header('Location: http://172.20.17.202/kome/MIRegistration3.php');
 
