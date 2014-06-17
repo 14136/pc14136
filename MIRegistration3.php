@@ -34,7 +34,7 @@
            '</td><td>' . $data['g_phot'] . 
            '</td><td>' . $data['g_pri'] .  
            '</td></tr>';
-      }
+      
 
       $con = mysql_close($con);
       if(!$con){
