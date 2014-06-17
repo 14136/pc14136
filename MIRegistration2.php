@@ -39,7 +39,7 @@ fclose($fp);
                                                $g_phot . "'," . 
                                                $g_pri . ")";
 
-      die($sqlstr);
+      print($sqlstr);
 
       //$result = mysql_query("INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
       //                       "VALUES (" . $s_code . ",'" . 
@@ -47,13 +47,13 @@ fclose($fp);
          //                                      $g_exp . "'," . 
            //                                    $g_phot . "," . 
              //                                  $g_pri . ")");
- die('クエリー1');
+ print('クエリー1');
       $result = mysql_query($sqlstr);
- die('クエリーが成功しました。2');
+ print('クエリーが成功しました。2');
       if (!$result) {
-        die('クエリーが失敗しました。'.mysql_error());
+        print('クエリーが失敗しました。'.mysql_error());
       }else{
-        die('クエリーが成功しました。');
+        print('クエリーが成功しました。');
       }
       
       $_SESSION['s_g_code'] = mysql_insert_id();
