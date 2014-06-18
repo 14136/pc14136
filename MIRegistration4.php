@@ -17,7 +17,7 @@
   }
 
   // 画像データ取得
-$sql = "SELECT IMG FROM IMAGES WHERE ID = " . $_GET['id'];
+$sql = "SELECT * FROM goods WHERE g_code = " . $_GET['id'];
 $result = mysql_query($sql, $dbLink);
 $row = mysql_fetch_row($result);
 
