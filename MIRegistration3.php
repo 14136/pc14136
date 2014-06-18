@@ -25,12 +25,12 @@
       
 
       $sqlstr = "SELECT * " .
-                            "FROM goods" .
-                            "WHERE g_s_code =" . $_SESSION['s_code'] . 
-                            "AND g_code =" . $_SESSION['g_code'];
+                            "FROM goods " .
+                            "WHERE g_s_code = " . $_SESSION['s_code'] . 
+                            "AND g_code = " . $_SESSION['g_code'];
       print($sqlstr);
 
-      $result = mysql_query(sqlstr);
+      $result = mysql_query($sqlstr);
       $data = mysql_fetch_array($result);
       echo '</td><td>' . $data['g_name'] . 
            '</td><td>' . $data['g_exp'] . 

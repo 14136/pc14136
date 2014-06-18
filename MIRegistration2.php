@@ -1,4 +1,4 @@
-ï»¿<?php
+<?php
       session_start();
       $s_code = $_SESSION['s_code'];
       $g_name = $_POST['g_name'];
@@ -7,28 +7,28 @@
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
-        exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«æŽ¥ç¶šã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
+        exit('ƒf[ƒ^ƒx[ƒX‚ÉÚ‘±‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
       }
       $result = mysql_select_db('riceshop', $con);
         if(!$result){
-          exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠžã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
+          exit('ƒf[ƒ^ƒx[ƒX‚ð‘I‘ð‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
         }
       $result = mysql_query('SET NAMES utf8', $con);
       if(!$result){
-        exit('æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’æŒ‡å®šã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
+        exit('•¶ŽšƒR[ƒh‚ðŽw’è‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
       }
 
 
-      //å®Ÿéš›ã«ãƒ†ãƒ³ãƒãƒ©ãƒªãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
+      //ŽÀÛ‚Éƒeƒ“ƒ|ƒ‰ƒŠƒtƒ@ƒCƒ‹‚ðŠJ‚­
       $fp = fopen( $_FILES['g_phot']['tmp_name'], 'rb');
 
-      //ãƒ•ã‚¡ã‚¤ãƒ«ã‚µã‚¤ã‚ºã‚’å–å¾—ã™ã‚‹
+      //ƒtƒ@ƒCƒ‹ƒTƒCƒY‚ðŽæ“¾‚·‚é
       $size = filesize($_FILES['g_phot']['tmp_name']);
 
-      //ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒã‚¤ãƒŠãƒªãƒ»ãƒ¢ãƒ¼ãƒ‰ã§èª­ã¿è¾¼ã‚€
+      //ƒtƒ@ƒCƒ‹‚ðƒoƒCƒiƒŠEƒ‚[ƒh‚Å“Ç‚Ýž‚Þ
       $g_phot = fread( $fp, $size );
 
-      //ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
+      //ƒtƒ@ƒCƒ‹‚ð•Â‚¶‚é
       fclose($fp);
 
 
@@ -49,16 +49,16 @@
              //                                  $g_pri . ")");
       $result = mysql_query($sqlstr);
       if (!$result) {
-        print('ã‚¯ã‚¨ãƒªãƒ¼ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚'.mysql_error());
+        print('ƒNƒGƒŠ[‚ªŽ¸”s‚µ‚Ü‚µ‚½B'.mysql_error());
       }else{
-        print('ã‚¯ã‚¨ãƒªãƒ¼ãŒæˆåŠŸã—ã¾ã—ãŸã€‚');
+        print('ƒNƒGƒŠ[‚ª¬Œ÷‚µ‚Ü‚µ‚½B');
       }
       
       $_SESSION['g_code'] = mysql_insert_id();
 
       $con = mysql_close($con);
       if(!$con){
-        exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã¨ã®æŽ¥ç¶šã‚’é–‰ã˜ã‚‰ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚');
+        exit('ƒf[ƒ^ƒx[ƒX‚Æ‚ÌÚ‘±‚ð•Â‚¶‚ç‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B');
       }
       header('Location: http://172.20.17.202/kome/MIRegistration3.php');
 
