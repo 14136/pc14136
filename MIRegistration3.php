@@ -28,7 +28,7 @@
                             "FROM goods" .
                             "WHERE g_s_code =" . $_SESSION['s_code'] . 
                             "AND g_code =" . $_SESSION['s_g_code'] , $con);
-      $data = mysql_fetch_array($result)
+      $data = mysql_fetch_array($result);
       echo '</td><td>' . $data['g_name'] . 
            '</td><td>' . $data['g_exp'] . 
            '</td><td>' . $data['g_phot'] . 
