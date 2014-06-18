@@ -27,7 +27,7 @@
       $sqlstr = "SELECT * " .
                             "FROM goods " .
                             "WHERE g_s_code = " . $_SESSION['s_code'] . 
-                            "AND g_code = " . $_SESSION['g_code'];
+                            " AND g_code = " . $_SESSION['g_code'];
       print($sqlstr);
 
       $result = mysql_query($sqlstr);
