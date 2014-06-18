@@ -1,33 +1,36 @@
-﻿<html>
+<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>商品情報登録</title>
+    <title>���i���o�^</title>
   </head>
   <body>
-    <table border=1><tr><th>商品名</th><th>商品説明</th><th>商品画像</th><th>商品価格</th></tr>
+    <table border=1><tr><th>���i��</th><th>���i����</th><th>���i�摜</th><th>���i���i</th></tr>
     <?php
       session_start();
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
-        exit('データベースに接続できませんでした。');
+        exit('�f�[�^�x�[�X�ɐڑ��ł��܂���ł����B');
       }
 
       $result = mysql_select_db('riceshop', $con);
         if(!$result){
-          exit('データベースを選択できませんでした。');
+          exit('�f�[�^�x�[�X��I���ł��܂���ł����B');
         }
 
       $result = mysql_query('SET NAMES utf8', $con);
       if(!$result){
-        exit('文字コードを指定できませんでした。');
+        exit('�����R�[�h���w��ł��܂���ł����B');
       }
+      
 
-      $result = mysql_query(
-                            "SELECT * " .
+      $sqlstr = "SELECT * " .
                             "FROM goods" .
                             "WHERE g_s_code =" . $_SESSION['s_code'] . 
-                            "AND g_code =" . $_SESSION['s_g_code'] , $con);
+                            "AND g_code =" . $_SESSION['g_code'];
+      print($sqlstr);
+
+      $result = mysql_query(sqlstr);
       $data = mysql_fetch_array($result);
       echo '</td><td>' . $data['g_name'] . 
            '</td><td>' . $data['g_exp'] . 
@@ -38,7 +41,7 @@
 
       $con = mysql_close($con);
       if(!$con){
-        exit('データベースとの接続を閉じられませんでした。');
+        exit('�f�[�^�x�[�X�Ƃ̐ڑ�������܂���ł����B');
       }
     ?>
     <table>

@@ -54,7 +54,7 @@
         print('クエリーが成功しました。');
       }
       
-      $_SESSION['s_g_code'] = mysql_insert_id();
+      $_SESSION['g_code'] = mysql_insert_id();
 
       $con = mysql_close($con);
       if(!$con){
