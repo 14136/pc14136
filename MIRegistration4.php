@@ -22,7 +22,7 @@ $result = mysql_query($sql, $dbLink);
 $row = mysql_fetch_row($result);
 
 // 画像ヘッダとしてjpegを指定（取得データがjpegの場合）
-header("Content-Type: image/jpeg");
+header("Content-Type: image/jpg");
 
 // バイナリデータを直接表示
 echo $row[0];
