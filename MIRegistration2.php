@@ -19,17 +19,11 @@
       }
 
 
-      //実際にテンポラリファイルを開く
-      $fp = fopen( $_FILES['g_phot']['tmp_name'], 'rb');
 
-      //ファイルサイズを取得する
-      $size = filesize($_FILES['g_phot']['tmp_name']);
+      $upfile = $_FILES["g_phot"]["tmp_name"];
+      $g_phot = file_get_contents($upfile);
+      $g_phot = mysql_real_escape_string($g_phot);
 
-      //ファイルをバイナリ・モードで読み込む
-      $g_phot = fread( $fp, $size );
-
-      //ファイルを閉じる
-      fclose($fp);
 
 
       $sqlstr = "INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
