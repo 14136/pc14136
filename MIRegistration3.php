@@ -1,26 +1,26 @@
-<html>
+ï»¿<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>¤•iî•ñ“o˜^</title>
+    <title>å•†å“æƒ…å ±ç™»éŒ²</title>
   </head>
   <body>
-    <table border=1><tr><th>¤•i–¼</th><th>¤•ià–¾</th><th>¤•i‰æ‘œ</th><th>¤•i‰¿Ši</th></tr>
+    <table border=1><tr><th>å•†å“å</th><th>å•†å“èª¬æ˜</th><th>å•†å“ç”»åƒ</th><th>å•†å“ä¾¡æ ¼</th></tr>
     <?php
       session_start();
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
-        exit('ƒf[ƒ^ƒx[ƒX‚ÉÚ‘±‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
+        exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«æ¥ç¶šã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
       }
 
       $result = mysql_select_db('riceshop', $con);
         if(!$result){
-          exit('ƒf[ƒ^ƒx[ƒX‚ğ‘I‘ğ‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
+          exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
         }
 
       $result = mysql_query('SET NAMES utf8', $con);
       if(!$result){
-        exit('•¶šƒR[ƒh‚ğw’è‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
+        exit('æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’æŒ‡å®šã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
       }
       
 
@@ -34,14 +34,14 @@
       $data = mysql_fetch_array($result);
       echo '</td><td>' . $data['g_name'] . 
            '</td><td>' . $data['g_exp'] . 
-           '</td><td><img src="MIRegistration4.php?id="' . $data['g_code'] . 
-           '></td><td>' . $data['g_pri'] .  
+           '</td><td><img src="MIRegistration4.php?id=' . $data['g_code'] . '">' .
+           '</td><td>' . $data['g_pri'] .  
            '</td></tr>';
       
 
       $con = mysql_close($con);
       if(!$con){
-        exit('ƒf[ƒ^ƒx[ƒX‚Æ‚ÌÚ‘±‚ğ•Â‚¶‚ç‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B');
+        exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã¨ã®æ¥ç¶šã‚’é–‰ã˜ã‚‰ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚');
       }
     ?>
     <table>
