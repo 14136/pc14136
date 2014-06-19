@@ -16,8 +16,9 @@
     exit('文字コードを指定できませんでした。');
   }
 
+
   // 画像データ取得
-$sql = "SELECT g_phot FROM goods WHERE g_code = " . $_GET['id'];
+$sql = "SELECT g_phot FROM goods WHERE g_code = " . $_SESSION['g_code'];
 $result = mysql_query($sql);
 $row = mysql_fetch_row($result);
 
