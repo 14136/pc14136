@@ -24,6 +24,7 @@ $row = mysql_fetch_row($result);
 
 // 画像ヘッダとしてjpegを指定（取得データがjpegの場合）
 header("Content-Type: image/jpg");
+header("Content-Disposition: inline; filename=image.jpg");
 echo $sql;
 // バイナリデータを直接表示
 echo $row['g_phot'];
