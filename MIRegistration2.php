@@ -18,12 +18,15 @@
         exit('文字コードを指定できませんでした。');
       }
 
-
-
+      $fp = fopen($_FILES["g_phot"]["tmp_name"], "rb");
+      $g_phot = fread($fp, filesize($_FILES["g_phot"]["tmp_name"]));
+      fclose($fp);
+      $g_phot = addslashes($g_phot);
+/*
       $upfile = $_FILES["g_phot"]["tmp_name"];
       $g_phot = file_get_contents($upfile);
       $g_phot = mysql_real_escape_string($g_phot);
-
+*/
 
 
       $sqlstr = "INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
