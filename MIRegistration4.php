@@ -20,7 +20,7 @@
   // 画像データ取得
 $sql = "SELECT g_phot FROM goods WHERE g_code = " . $_GET['id'];
 $result = mysql_query($sql);
-$row = mysql_fetch_row($result);
+$row = mysql_fetch_array($result);
 
 
 // 画像ヘッダとしてjpegを指定（取得データがjpegの場合）
