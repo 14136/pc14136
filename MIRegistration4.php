@@ -26,7 +26,7 @@ $row = mysql_fetch_row($result);
 header("Content-Type: image/jpg");
 echo $sql;
 // バイナリデータを直接表示
-echo $row[0];
+echo $row['g_phot'];
   print($sql);
 
 
