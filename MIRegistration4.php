@@ -18,7 +18,7 @@
 
   // 画像データ取得
 $sql = "SELECT * FROM goods WHERE g_code = " . $_GET['id'];
-$result = mysql_query($sql, $dbLink);
+$result = mysql_query($sql);
 $row = mysql_fetch_row($result);
 
 // 画像ヘッダとしてjpegを指定（取得データがjpegの場合）
@@ -30,8 +30,8 @@ echo $row[0];
 
 
 
-  $result = mysql_query($sqlstr);
-  $data = mysql_fetch_array($result);
+  //$result = mysql_query($sqlstr);
+  //$data = mysql_fetch_array($result);
   /*while( $row = mysql_fetch_assoc($rs) ){
   //  switch( strtolower($row['EXT']) ){
   //    case 'jpg' :
