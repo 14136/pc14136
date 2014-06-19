@@ -20,7 +20,12 @@
   // 画像データ取得
 $sql = "SELECT g_phot FROM goods WHERE g_code = " . $_SESSION['g_code'];
 $result = mysql_query($sql);
-$row = mysql_fetch_row($result);
+//$row = mysql_fetch_row($result);
+
+
+$a = mysql_fetch_assoc( $result );
+print $a['g_phot'];
+
 
 // 画像ヘッダとしてjpegを指定（取得データがjpegの場合）
 header("Content-Type: image/jpg");
