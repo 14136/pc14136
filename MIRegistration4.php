@@ -61,7 +61,7 @@ header("Content-Type: image/jpeg");
   */
   header( "Content-Disposition: inline;");
   header( "Content-Transfer-Encoding: binary");
-  header( "Content-Length: ". $size );
+  //header( "Content-Length: ". $size );
   //echo( $data );
   echo $row['g_phot'];
   $con = mysql_close($con);
