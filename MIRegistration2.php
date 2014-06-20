@@ -17,7 +17,7 @@
       if(!$result){
         exit('文字コードを指定できませんでした。');
       }
-
+/*
       $fp = fopen($_FILES["g_phot"]["tmp_name"], "rb");
       $g_phot = fread($fp, filesize($_FILES["g_phot"]["tmp_name"]));
       fclose($fp);
@@ -29,11 +29,24 @@
 */
 
 
+      // 画像の取得
+      $img_file = file_get_contents( $_FILES["g_phot"]["tmp_name"] );
+
+ 
+
+	//画像をバイナリに変換
+	$img_binary = mysqli_real_escape_string($img_file );
+	
+
+
+	
+
+
       $sqlstr = "INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
                 "VALUES (" . $s_code . ",'" . 
                              $g_name . "','" . 
                              $g_exp . "','" . 
-                             mysql_real_escape_string($g_phot) . "'," . 
+                             $img_binary . "'," . 
                              $g_pri . ")";
 
       //print($sqlstr);
