@@ -26,7 +26,7 @@ $row = mysql_fetch_array($result);
 // 画像ヘッダとしてjpegを指定（取得データがjpegの場合）
 header("Content-Type: image/jpeg");
 // バイナリデータを直接表示
-echo $row['g_phot'];
+
 
 
 
@@ -58,11 +58,12 @@ echo $row['g_phot'];
   mysql_close($link);
 
   header( "Content-Type: " . $contentType );
+  */
   header( "Content-Disposition: inline;");
   header( "Content-Transfer-Encoding: binary");
   header( "Content-Length: ". $size );
-  echo( $data );
-  */
+  //echo( $data );
+  echo $row['g_phot'];
   $con = mysql_close($con);
   if(!$con){
     //exit('データベースとの接続を閉じられませんでした。');
