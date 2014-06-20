@@ -24,7 +24,7 @@ $row = mysql_fetch_array($result);
 
 
 // 画像ヘッダとしてjpegを指定（取得データがjpegの場合）
-header("Content-Type: image/jpg");
+header("Content-Type: image/jpeg");
 // バイナリデータを直接表示
 echo $row['g_phot'];
 
@@ -35,21 +35,21 @@ echo $row['g_phot'];
   //$result = mysql_query($sqlstr);
   //$data = mysql_fetch_array($result);
   /*while( $row = mysql_fetch_assoc($rs) ){
-  //  switch( strtolower($row['EXT']) ){
-  //    case 'jpg' :
-  //    case 'jpeg':
-  //      $contentType = 'image/jpeg';
-  //      break;
-  //    case 'gif':
-  //      $contentType = 'image/gif';
-  //      break;
-  //    case 'bmp':
-  //      $contentType = 'image/bmp';
-  //      break;
-  //    case 'png':
-  //      $contentType = 'image/png';
-  //      break;
-  //  }
+    switch( strtolower($row['EXT']) ){
+      case 'jpg' :
+      case 'jpeg':
+        $contentType = 'image/jpeg';
+        break;
+      case 'gif':
+        $contentType = 'image/gif';
+        break;
+      case 'bmp':
+        $contentType = 'image/bmp';
+        break;
+      case 'png':
+        $contentType = 'image/png';
+        break;
+    }
 
     $data = $row['IMG_DATA'];
     $size = $row['IMG_SIZE'];
