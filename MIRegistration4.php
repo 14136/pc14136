@@ -3,17 +3,17 @@
 
   $con = mysql_connect('172.20.17.202', 'admin', '1111');
   if(!$con){
-    exit('データベースに接続できませんでした。');
+    //exit('データベースに接続できませんでした。');
   }
 
   $result = mysql_select_db('riceshop', $con);
   if(!$result){
-    exit('データベースを選択できませんでした。');
+    //exit('データベースを選択できませんでした。');
   }
 
   $result = mysql_query('SET NAMES utf8', $con);
   if(!$result){
-    exit('文字コードを指定できませんでした。');
+    //exit('文字コードを指定できませんでした。');
   }
 
 
@@ -65,6 +65,6 @@ echo $row['g_phot'];
   */
   $con = mysql_close($con);
   if(!$con){
-    exit('データベースとの接続を閉じられませんでした。');
+    //exit('データベースとの接続を閉じられませんでした。');
   }
 ?>
