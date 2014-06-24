@@ -22,13 +22,13 @@
       $g_phot = fread($fp, filesize($_FILES["g_phot"]["tmp_name"]));
       fclose($fp);
       $g_phot = addslashes($g_phot);
-/*
+*/
       $upfile = $_FILES["g_phot"]["tmp_name"];
       $g_phot = file_get_contents($upfile);
       $g_phot = mysql_real_escape_string($g_phot);
-*/
 
 
+      /*
       // ‰æ‘œ‚ÌŽæ“¾
       $img_file = file_get_contents( $_FILES["g_phot"]["tmp_name"] );
 
@@ -36,7 +36,7 @@
 
 	//‰æ‘œ‚ðƒoƒCƒiƒŠ‚É•ÏŠ·
 	$img_binary = mysqli_real_escape_string($img_file );
-	
+	*/
 
 
 	
@@ -46,7 +46,7 @@
                 "VALUES (" . $s_code . ",'" . 
                              $g_name . "','" . 
                              $g_exp . "','" . 
-                             $img_binary . "'," . 
+                             $g_phot . "'," . 
                              $g_pri . ")";
 
       //print($sqlstr);

@@ -59,13 +59,13 @@ header("Content-Type: image/jpeg");
 
   header( "Content-Type: " . $contentType );
   */
-  header( "Content-Disposition: inline;");
-  header( "Content-Transfer-Encoding: binary");
+ // header( "Content-Disposition: inline;");
+ // header( "Content-Transfer-Encoding: binary");
   //header( "Content-Length: ". $size );
   //echo( $data );
-  echo $row['g_phot'];
+  echo $row[0];
   $con = mysql_close($con);
   if(!$con){
-    //exit('データベースとの接続を閉じられませんでした。');
+    exit('データベースとの接続を閉じられませんでした。');
   }
 ?>
