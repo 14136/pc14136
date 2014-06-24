@@ -17,7 +17,7 @@
         <tr>
           <td><input type="text" name="g_name"></td>
           <td><input type="text" name="g_exp"></td>
-          <td><input type="file" name="g_phot"  accept="image/jpeg,image/png,image/gif"></td>
+          <td><input type="file" name="g_phot"  accept="image/jpeg,image/png,image/gif" size="50"></td>
           <td><input type="text" name="g_pri"></td>
         </tr>
       </table>
