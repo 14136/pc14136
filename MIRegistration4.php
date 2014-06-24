@@ -18,7 +18,7 @@
 
 
   // 画像データ取得
-$sql = "SELECT g_phot FROM goods WHERE g_code = " . $_GET['id'];
+$sql = "SELECT * FROM goods WHERE g_code = " . $_GET['id'];
 $result = mysql_query($sql);
 $row = mysql_fetch_array($result);
 
@@ -63,7 +63,7 @@ header("Content-Type: image/jpeg");
  // header( "Content-Transfer-Encoding: binary");
   //header( "Content-Length: ". $size );
   //echo( $data );
-  echo $row[0];
+  echo $row['g_phot'];
   $con = mysql_close($con);
   if(!$con){
     exit('データベースとの接続を閉じられませんでした。');
