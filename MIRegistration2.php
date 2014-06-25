@@ -20,11 +20,10 @@
 
 
 
-      $sqlstr = "INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
+      $sqlstr = "INSERT INTO goods (g_s_code,g_name,g_exp,g_pri)" .
                 "VALUES (" . $s_code . ",'" . 
                              $g_name . "','" . 
                              $g_exp . "','" . 
-                             $g_phot . "'," . 
                              $g_pri . ")";
 
       $result = mysql_query($sqlstr);
@@ -34,10 +33,10 @@
         print('クエリーが成功しました。');
       }
       
-      $_SESSION['g_code'] = mysql_insert_id();
+      $_FILES["g_phot"]["name"] = mysql_insert_id();
 
       $pathinfo = pathinfo( $_FILES['g_phot']['name'] );
-      $_FILES["g_phot"]["name"] = $_SESSION['g_code'] . $pathinfo['extension'];
+      $_FILES["g_phot"]["name"] = $_SESSION['g_code'] . '.' . $pathinfo['extension'];
 
       if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
         if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
@@ -49,6 +48,13 @@
       } else {
         echo "ファイルが選択されていません。";
       }
+
+      $sqlstr = "UPDATE goods SET g_phot = http://172.20.17.202/kome/gazou/" . $_FILES["g_phot"]["name"] . 
+                " WHERE g_code = " . $_FILES["g_phot"]["name"]; 
+
+      $result = mysql_query($sqlstr);
+
+
 
       $con = mysql_close($con);
       if(!$con){
