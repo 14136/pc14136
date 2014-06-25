@@ -23,40 +23,22 @@
       fclose($fp);
       $g_phot = addslashes($g_phot);
 */
-      $upfile = $_FILES["g_phot"]["tmp_name"];
-      $g_phot = file_get_contents($upfile);
-      $g_phot = mysql_real_escape_string($g_phot);
+      //$upfile = $_FILES["g_phot"]["tmp_name"];
+      //$g_phot = file_get_contents($upfile);
+      //$g_phot = mysql_real_escape_string($g_phot);
 
 
 
-   //var_dump($_FILES);
-	//'file'がHTTP POSTによりアップロードされているか？
-	//いなければスクリプト通りに動作していない
-	if (is_uploaded_file( ( $_FILES['g_phot']['tmp_name'][0]) ) ){
-		//HTTP POSTによるファイルのアップロードに成功
-
-		//phpと同じディレクトリにアップロードされているので、所定のフォルダに移す
-
-		//アップロードしたファイルの保存先のディレクトリ
-		//相対ディレクトリでも絶対ディレクトリでも。相対の方が楽ですが。
-		$uploaddir = 'http://172.20.17.202/kome/gazou';
-		//アップロードしたファイルの保存名。デイレクトリ部分を含む
-		$uploadfile = $uploaddir . basename($_FILES['g_phot']['name'][0]);
-
-		if(move_uploaded_file($_FILES['upfile']['tmp_name'][0], $uploadfile)){
-			//move_uploaded_file($uploadfile, $uploaddir)
-			echo "アップロード成功です";
-		}else{
-			//何らかの理由でディレクトリに移動できない場合
-			echo "ディレクトリ名:" . $uploaddir . "をいまいちど確認してください
-";
-			echo "現在のディレクトリは" . getcwd();
-		}
-
-	} else{
-		echo "おそらく何らかの攻撃を受けました";
-		echo "ファイル名" . $_FILES['g_phot']['tmp_name'][0] . ".";
-	} 
+ if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
+  if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
+    chmod("gazou/" . $_FILES["g_phot"]["name"], 0644);
+    echo $_FILES["g_phot"]["name"] . "をアップロードしました。";
+  } else {
+    echo "ファイルをアップロードできません。";
+  }
+} else {
+  echo "ファイルが選択されていません。";
+}
       /*
       // 画像の取得
       $img_file = file_get_contents( $_FILES["g_phot"]["tmp_name"] );
