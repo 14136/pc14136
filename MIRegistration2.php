@@ -17,41 +17,17 @@
       if(!$result){
         exit('文字コードを指定できませんでした。');
       }
-/*
-      $fp = fopen($_FILES["g_phot"]["tmp_name"], "rb");
-      $g_phot = fread($fp, filesize($_FILES["g_phot"]["tmp_name"]));
-      fclose($fp);
-      $g_phot = addslashes($g_phot);
-*/
-      //$upfile = $_FILES["g_phot"]["tmp_name"];
-      //$g_phot = file_get_contents($upfile);
-      //$g_phot = mysql_real_escape_string($g_phot);
 
-
-
- if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
-  if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
-    chmod("gazou/" . $_FILES["g_phot"]["name"], 0644);
-    echo $_FILES["g_phot"]["name"] . "をアップロードしました。";
-  } else {
-    echo "ファイルをアップロードできません。";
-  }
-} else {
-  echo "ファイルが選択されていません。";
-}
-      /*
-      // 画像の取得
-      $img_file = file_get_contents( $_FILES["g_phot"]["tmp_name"] );
-
- 
-
-	//画像をバイナリに変換
-	$img_binary = mysqli_real_escape_string($img_file );
-	*/
-
-
-	
-
+      if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
+        if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
+          chmod("gazou/" . $_FILES["g_phot"]["name"], 0644);
+          echo $_FILES["g_phot"]["name"] . "をアップロードしました。";
+        } else {
+          echo "ファイルをアップロードできません。";
+        }
+      } else {
+        echo "ファイルが選択されていません。";
+      }
 
       $sqlstr = "INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
                 "VALUES (" . $s_code . ",'" . 
@@ -60,14 +36,6 @@
                              $g_phot . "'," . 
                              $g_pri . ")";
 
-      //print($sqlstr);
-
-      //$result = mysql_query("INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
-      //                       "VALUES (" . $s_code . ",'" . 
-       //                                        $g_name . "','" . 
-         //                                      $g_exp . "'," . 
-           //                                    $g_phot . "," . 
-             //                                  $g_pri . ")");
       $result = mysql_query($sqlstr);
       if (!$result) {
         print('クエリーが失敗しました。'.mysql_error());
@@ -76,6 +44,17 @@
       }
       
       $_SESSION['g_code'] = mysql_insert_id();
+
+      if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
+        if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_SESSION['g_code'])) {
+          chmod("gazou/" . $_SESSION['g_code'], 0644);
+          echo $_SESSION['g_code'] . "をアップロードしました。";
+        } else {
+          echo "ファイルをアップロードできません。";
+        }
+      } else {
+        echo "ファイルが選択されていません。";
+      }
 
       $con = mysql_close($con);
       if(!$con){
