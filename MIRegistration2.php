@@ -22,7 +22,7 @@
 
 
       $sqlstr = "INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
-                "VALUES (" . $s_code . ",'" . 
+                " VALUES (" . $s_code . ",'" . 
                              $g_name . "','" . 
                              $g_exp . "','" . 
                              $aaa . "','" . 
@@ -39,10 +39,10 @@
       $_SESSION['g_code'] = mysql_insert_id();
       $code = $_SESSION['g_code'];
 
-if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
-  if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
-    chmod("files/" . $_FILES["upfile"]["name"], 0644);
-    echo $_FILES["upfile"]["name"] . "をアップロードしました。";
+if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
+  if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
+    chmod("gazou/" . $_FILES["g_phot"]["name"], 0644);
+    echo $_FILES["g_phot"]["name"] . "をアップロードしました。";
   } else {
     echo "ファイルをアップロードできません。";
   }
