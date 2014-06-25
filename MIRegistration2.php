@@ -39,33 +39,23 @@
       $_SESSION['g_code'] = mysql_insert_id();
       $code = $_SESSION['g_code'];
 
-      $pathinfo = pathinfo( $_FILES['g_phot']['name'] );
-      $name = $code . '.' . $pathinfo['extension'];
-      $_FILES["g_phot"]["name"] = $name;
-
-      if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
-        if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
-          chmod("gazou/" . $_FILES["g_phot"]["name"], 0644);
-          echo $_FILES["g_phot"]["name"] . "をアップロードしました。";
-        } else {
-          echo "ファイルをアップロードできません。";
-        }
-      } else {
-        echo "ファイルが選択されていません。";
-      }
-
-      $sqlaaa = "UPDATE goods SET g_phot = http://172.20.17.202/kome/gazou/" . $_FILES["g_phot"]["name"] . 
-                " WHERE g_code = " . $code; 
-
-      $result = mysql_query($sqlaaa);
-
+if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
+  if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
+    chmod("files/" . $_FILES["upfile"]["name"], 0644);
+    echo $_FILES["upfile"]["name"] . "をアップロードしました。";
+  } else {
+    echo "ファイルをアップロードできません。";
+  }
+} else {
+  echo "ファイルが選択されていません。";
+}
 
 
       $con = mysql_close($con);
       if(!$con){
         exit('データベースとの接続を閉じられませんでした。');
       }
-      header('Location: http://172.20.17.202/kome/MIRegistration3.php');
+      //header('Location: http://172.20.17.202/kome/MIRegistration3.php');
 
 
 
