@@ -28,7 +28,7 @@
                             "FROM goods " .
                             "WHERE g_s_code = " . $_SESSION['s_code'] . 
                             " AND g_code = " . $_SESSION['g_code'];
-      print($sqlstr);
+      print($_SESSION['sqlstr']);
 
       $result = mysql_query($sqlstr);
       $data = mysql_fetch_array($result);
