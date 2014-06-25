@@ -36,7 +36,8 @@
       
       $_SESSION['g_code'] = mysql_insert_id();
 
-      $_FILES["g_phot"]["name"] = $_SESSION['g_code'];
+      $pathinfo = pathinfo( $_FILES['g_phot']['name'] );
+      $_FILES["g_phot"]["name"] = $_SESSION['g_code'] . $pathinfo['extension'];
 
       if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
         if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {

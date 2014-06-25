@@ -34,7 +34,7 @@
       $data = mysql_fetch_array($result);
       echo '</td><td>' . $data['g_name'] . 
            '</td><td>' . $data['g_exp'] . 
-           '</td><td><img src="./gazou/plants_31.gif">' .
+           '</td><td><img src="./gazou/' . $_SESSION['g_code'] . '">' .
            '</td><td>' . $data['g_pri'] .  
            '</td></tr>';
       
