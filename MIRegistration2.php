@@ -4,6 +4,7 @@
       $g_name = $_POST['g_name'];
       $g_exp = $_POST['g_exp'];
       $g_pri = $_POST['g_pri'];
+      $aaa = 0;
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
@@ -20,10 +21,11 @@
 
 
 
-      $sqlstr = "INSERT INTO goods (g_s_code,g_name,g_exp,g_pri)" .
+      $sqlstr = "INSERT INTO goods (g_s_code,g_name,g_exp,g_phot,g_pri)" .
                 "VALUES (" . $s_code . ",'" . 
                              $g_name . "','" . 
                              $g_exp . "','" . 
+                             $aaa . "','" . 
                              $g_pri . ")";
 
       $result = mysql_query($sqlstr);
@@ -51,10 +53,10 @@
         echo "ファイルが選択されていません。";
       }
 
-      $sqlstr = "UPDATE goods SET g_phot = http://172.20.17.202/kome/gazou/" . $_FILES["g_phot"]["name"] . 
+      $sqlaaa = "UPDATE goods SET g_phot = http://172.20.17.202/kome/gazou/" . $_FILES["g_phot"]["name"] . 
                 " WHERE g_code = " . $code; 
 
-      $result = mysql_query($sqlstr);
+      $result = mysql_query($sqlaaa);
 
 
 
