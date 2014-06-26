@@ -27,7 +27,7 @@
                              $g_exp . "','" . 
                              $aaa . "'," . 
                              $g_pri . ")";
-      echo $sqlstr;
+
 
       $result = mysql_query($sqlstr);
       if (!$result) {
@@ -38,7 +38,7 @@
       
       $_SESSION['g_code'] = mysql_insert_id();
       $code = $_SESSION['g_code'];
-
+      echo $code;
 if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
   if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
     chmod("gazou/" . $_FILES["g_phot"]["name"], 0644);
