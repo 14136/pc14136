@@ -39,7 +39,7 @@
       //$_SESSION['g_code'] = mysql_insert_id();
       //$code = $_SESSION['g_code'];
       $last_id = mysql_insert_id();
-      $tmp_file = getimagesize($_FILES[$upfile]["tmp_name"]);
+      $tmp_file = getimagesize($_FILES["g_phot"]["tmp_name"]);
       $gazoumei = $last_id . '.' . $tmp_file['mime'];
       $_FILES["g_phot"]["name"] = $gazoumei;
 if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
