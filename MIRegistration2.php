@@ -36,8 +36,9 @@
         print('クエリーが成功しました。');
       }
       
-      $_SESSION['g_code'] = mysql_insert_id();
-      $code = $_SESSION['g_code'];
+      //$_SESSION['g_code'] = mysql_insert_id();
+      //$code = $_SESSION['g_code'];
+      $code = mysql_insert_id();
       echo $code;
 if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
   if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
