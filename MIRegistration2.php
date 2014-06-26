@@ -25,7 +25,7 @@
                 " VALUES (" . $s_code . ",'" . 
                              $g_name . "','" . 
                              $g_exp . "','" . 
-                             $aaa . "','" . 
+                             $aaa . "'," . 
                              $g_pri . ")";
       echo $sqlstr;
 
