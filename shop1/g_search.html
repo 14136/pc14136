@@ -1,0 +1,39 @@
+﻿ <html>
+<head>
+<title>商品検索</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<form action="g_search.php" method="post">
+  検索条件を指定してください<br>
+  <table width="500" border="1" cellspacing="1" cellpadding="0">
+    
+	<tr> 
+      <td>商品番号</td>
+      <td> 
+        <input type="text" name="g_code" size="40" maxlength="255">
+      </td>
+    </tr>
+
+    <tr> 
+      <td>商品販売者番号</td>
+      <td> 
+        <input type="text" name="g_s_code" size="40" maxlength="255">
+      </td>
+    </tr>
+
+    <tr> 
+      <td>商品名</td>
+      <td> 
+        <input type="text" name="g_name" size="40" maxlength="255">
+      </td>
+    </tr>
+
+  </table>
+  <input type="submit" name="submit" value="検索">
+  <input type="reset" value="条件クリア">
+</form>
+</body>
+</html>
+  
