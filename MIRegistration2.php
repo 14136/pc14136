@@ -38,8 +38,10 @@
       
       //$_SESSION['g_code'] = mysql_insert_id();
       //$code = $_SESSION['g_code'];
-      $code = mysql_insert_id();
-      echo $code;
+      $last_id = mysql_insert_id();
+      $tmp_file = getimagesize($_FILES[$upfile]["tmp_name"]);
+      $gazoumei = $last_id . '.' . $tmp_file;
+      $_FILES["g_phot"]["name"] = $gazoumei;
 if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
   if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
     chmod("gazou/" . $_FILES["g_phot"]["name"], 0644);
