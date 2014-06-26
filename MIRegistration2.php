@@ -39,8 +39,9 @@
       //$_SESSION['g_code'] = mysql_insert_id();
       //$code = $_SESSION['g_code'];
       $last_id = mysql_insert_id();
-      $ext = strrpos($_FILES['g_phot']['name'], '.') ? substr($file, strrpos($_FILES['g_phot']['name'], '.')) : '';
-      $gazoumei = $last_id . '.' . $ext;
+      $fileinfo = pathinfo($_FILES["g_phot"]["name"]);
+      $fileext = strtoupper($fileinfo["extension"]);
+      $gazoumei = $last_id . '.' . $fileext;
       $_FILES["g_phot"]["name"] = $gazoumei;
 if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
   if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
