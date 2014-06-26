@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
       session_start();
       $s_code = $_SESSION['s_code'];
       $g_name = $_POST['g_name'];
@@ -8,15 +8,15 @@
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
-        exit('ƒf[ƒ^ƒx[ƒX‚ÉÚ‘±‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
+        exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«æŽ¥ç¶šã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
       }
       $result = mysql_select_db('riceshop', $con);
         if(!$result){
-          exit('ƒf[ƒ^ƒx[ƒX‚ð‘I‘ð‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
+          exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠžã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
         }
       $result = mysql_query('SET NAMES utf8', $con);
       if(!$result){
-        exit('•¶ŽšƒR[ƒh‚ðŽw’è‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B');
+        exit('æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’æŒ‡å®šã§ãã¾ã›ã‚“ã§ã—ãŸã€‚');
       }
 
 
@@ -31,9 +31,9 @@
 
       $result = mysql_query($sqlstr);
       if (!$result) {
-        print('ƒNƒGƒŠ[‚ªŽ¸”s‚µ‚Ü‚µ‚½B'.mysql_error());
+        print('ã‚¯ã‚¨ãƒªãƒ¼ãŒå¤±æ•—ã—ã¾ã—ãŸã€‚'.mysql_error());
       }else{
-        print('ƒNƒGƒŠ[‚ª¬Œ÷‚µ‚Ü‚µ‚½B');
+        print('ã‚¯ã‚¨ãƒªãƒ¼ãŒæˆåŠŸã—ã¾ã—ãŸã€‚');
       }
       
       $_SESSION['g_code'] = mysql_insert_id();
@@ -42,18 +42,18 @@
 if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
   if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
     chmod("gazou/" . $_FILES["g_phot"]["name"], 0644);
-    echo $_FILES["g_phot"]["name"] . "‚ðƒAƒbƒvƒ[ƒh‚µ‚Ü‚µ‚½B";
+    echo $_FILES["g_phot"]["name"] . "ã‚’ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã—ã¾ã—ãŸã€‚";
   } else {
-    echo "ƒtƒ@ƒCƒ‹‚ðƒAƒbƒvƒ[ƒh‚Å‚«‚Ü‚¹‚ñB";
+    echo "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã§ãã¾ã›ã‚“ã€‚";
   }
 } else {
-  echo "ƒtƒ@ƒCƒ‹‚ª‘I‘ð‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB";
+  echo "ãƒ•ã‚¡ã‚¤ãƒ«ãŒé¸æŠžã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚";
 }
 
 
       $con = mysql_close($con);
       if(!$con){
-        exit('ƒf[ƒ^ƒx[ƒX‚Æ‚ÌÚ‘±‚ð•Â‚¶‚ç‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B');
+        exit('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã¨ã®æŽ¥ç¶šã‚’é–‰ã˜ã‚‰ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚');
       }
       //header('Location: http://172.20.17.202/kome/MIRegistration3.php');
 
