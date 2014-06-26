@@ -27,7 +27,7 @@
                              $g_exp . "','" . 
                              $aaa . "','" . 
                              $g_pri . ")";
-      $_SESSION['sqlstr'] = $sqlstr;
+      echo $sqlstr;
 
       $result = mysql_query($sqlstr);
       if (!$result) {
