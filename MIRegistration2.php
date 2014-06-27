@@ -36,10 +36,10 @@
         print('クエリーが成功しました。');
       }
       
-      $last_id = mysql_insert_id();
+      $_SESSION['g_code'] = mysql_insert_id();
       $fileinfo = pathinfo($_FILES["g_phot"]["name"]);
       $fileext = strtoupper($fileinfo["extension"]);
-      $gazoumei = $last_id . '.' . $fileext;
+      $gazoumei = $_SESSION['g_code'] . '.' . $fileext;
       $_FILES["g_phot"]["name"] = $gazoumei;
 if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
   if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
