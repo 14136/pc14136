@@ -52,7 +52,7 @@ if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
   echo "ファイルが選択されていません。";
 }
 
-$result = mysql_query('UPDATE goods SET g_phot = "172.20.17.202/kome/gazou/' . $gazoumei . '" WHERE g_code = ' . $_SESSION['g_code'] );
+$result = mysql_query('UPDATE goods SET g_phot = "gazou/' . $gazoumei . '" WHERE g_code = ' . $_SESSION['g_code'] );
           if (!$result) {
             die('クエリーが失敗しました。'.mysql_error());
           }
