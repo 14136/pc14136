@@ -1,13 +1,14 @@
 ﻿<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>商品情報登録</title>
+    <title>商品情報変更</title>
   </head>
   <body>
-    <p>商品登録完了しました</p>
-    <table border=1><tr><th>商品名</th><th>商品説明</th><th>商品画像</th><th>商品価格</th></tr>
+    <form method="post" action="DSChange.php">
+    <table border=1><tr><th></th><th>商品名</th><th>商品説明</th><th>画像</th><th>価格</th></tr>
     <?php
-      session_start(); 
+      session_start();
+      $s_code = $_SESSION['s_code'];
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
@@ -23,30 +24,31 @@
       if(!$result){
         exit('文字コードを指定できませんでした。');
       }
-      
 
-      $sqlstr = "SELECT * " .
+      $result = mysql_query(
+                            "SELECT * " .
                             "FROM goods " .
-                            "WHERE g_s_code = " . $_SESSION['s_code'] . 
-                            " AND g_code = " . $_SESSION['g_code'];
-
-      $result = mysql_query($sqlstr);
-      $data = mysql_fetch_array($result);
-      echo '</td><td>' . $data['g_name'] . 
-           '</td><td>' . $data['g_exp'] . 
-           '</td><td><img src="' . $data['g_phot'] . '">' .
-           '</td><td>' . $data['g_pri'] .  
-           '</td></tr>';
-      
+                            "WHERE g_s_code =" . $s_code , $con);
+      while($data = mysql_fetch_array($result)){
+        echo '<tr><td><input type="checkbox" name="h_code[]" value="' . $data['g_code'] . '">' . 
+             '</td><td>' . $data['g_name'];
+             '</td><td>' . $data['g_exp'] . 
+             '</td><td>' . $data['g_phot'] . 
+             '</td><td>' . $data['g_pri'] . 
+             '</td></tr>';
+      }
 
       $con = mysql_close($con);
       if(!$con){
         exit('データベースとの接続を閉じられませんでした。');
       }
+
     ?>
     <table>
+    <p><input type="submit" value="変更する"></p>
+    </form>
   </body>
-</html> 
+</html>
 
 
 <!--
