@@ -34,7 +34,7 @@
         echo '<tr><td><input type="radio" name="g_code" value="' . $data['g_code'] . '">' . 
              '</td><td>' . $data['g_name'] .
              '</td><td>' . $data['g_exp'] . 
-             '</td><td><img ="' . $data['g_phot'] . 
+             '</td><td><img src="' . $data['g_phot'] . 
              '"></td><td>' . $data['g_pri'] . 
              '</td></tr>';
       }
