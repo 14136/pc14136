@@ -5,6 +5,7 @@
   </head>
   <body>
     <form method="post" action="MIChange2.php">
+    <p>変更する商品を選択してください</p>
     <table border=1><tr><th></th><th>商品名</th><th>商品説明</th><th>画像</th><th>価格</th></tr>
     <?php
       session_start();
@@ -29,7 +30,6 @@
                             "SELECT * " .
                             "FROM goods " .
                             "WHERE g_s_code =" . $s_code , $con);
-      echo $result;
       while($data = mysql_fetch_array($result)){
         echo '<tr><td><input type="radio" name="g_code" value="' . $data['g_code'] . '">' . 
              '</td><td>' . $data['g_name'] .
