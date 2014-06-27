@@ -1,26 +1,26 @@
-<html>
+﻿<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>���i���o�^</title>
+    <title>商品情報登録</title>
   </head>
   <body>
-    <table border=1><tr><th>���i��</th><th>���i����</th><th>���i�摜</th><th>���i���i</th></tr>
+    <table border=1><tr><th>商品名</th><th>商品説明</th><th>商品画像</th><th>商品価格</th></tr>
     <?php
-      session_start();
+      session_start(); 
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
-        exit('�f�[�^�x�[�X�ɐڑ��ł��܂���ł����B');
+        exit('データベースに接続できませんでした。');
       }
 
       $result = mysql_select_db('riceshop', $con);
         if(!$result){
-          exit('�f�[�^�x�[�X��I���ł��܂���ł����B');
+          exit('データベースを選択できませんでした。');
         }
 
       $result = mysql_query('SET NAMES utf8', $con);
       if(!$result){
-        exit('�����R�[�h���w��ł��܂���ł����B');
+        exit('文字コードを指定できませんでした。');
       }
       
 
@@ -40,7 +40,7 @@
 
       $con = mysql_close($con);
       if(!$con){
-        exit('�f�[�^�x�[�X�Ƃ̐ڑ�������܂���ł����B');
+        exit('データベースとの接続を閉じられませんでした。');
       }
     ?>
     <table>
