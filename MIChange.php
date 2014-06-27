@@ -4,7 +4,7 @@
     <title>商品情報変更</title>
   </head>
   <body>
-    <form method="post" action="DSChange.php">
+    <form method="post" action="MIChange2.php">
     <table border=1><tr><th></th><th>商品名</th><th>商品説明</th><th>画像</th><th>価格</th></tr>
     <?php
       session_start();
@@ -31,11 +31,11 @@
                             "WHERE g_s_code =" . $s_code , $con);
       echo $result;
       while($data = mysql_fetch_array($result)){
-        echo '<tr><td><input type="checkbox" name="g_code[]" value="' . $data['g_code'] . '">' . 
+        echo '<tr><td><input type="radio" name="g_code" value="' . $data['g_code'] . '">' . 
              '</td><td>' . $data['g_name'] .
              '</td><td>' . $data['g_exp'] . 
-             '</td><td>' . $data['g_phot'] . 
-             '</td><td>' . $data['g_pri'] . 
+             '</td><td><img ="' . $data['g_phot'] . 
+             '"></td><td>' . $data['g_pri'] . 
              '</td></tr>';
       }
 
