@@ -44,7 +44,7 @@
       }
 
     ?>
-    <table>
+    <table> 
     <p><input type="submit" value="変更する"></p>
     </form>
   </body>
