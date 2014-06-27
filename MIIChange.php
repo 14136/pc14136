@@ -29,6 +29,7 @@
                             "SELECT * " .
                             "FROM goods " .
                             "WHERE g_s_code =" . $s_code , $con);
+      echo $result;
       while($data = mysql_fetch_array($result)){
         echo '<tr><td><input type="checkbox" name="g_code[]" value="' . $data['g_code'] . '">' . 
              '</td><td>' . $data['g_name'] .
@@ -44,7 +45,7 @@
       }
 
     ?>
-    <table> 
+    </table> 
     <p><input type="submit" value="変更する"></p>
     </form>
   </body>

@@ -65,7 +65,7 @@
       }
 
     ?>
-    <table>
+    </table>
     <p><input type="submit" value="選択した注文を発送済みにする" name="sumi"><input type="submit" value="選択した注文を未発送にする" name="mi"></p>
     </form>
   </body>
