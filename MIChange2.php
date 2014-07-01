@@ -6,7 +6,7 @@
   <body>
     <p>商品情報を変更します</p>
     <form action="MIRegistration3.php" method="post" enctype="multipart/form-data">
-      <table border=1><tr><th></th><th>商品名</th><th>商品説明</th><th>画像</th><th>価格</th></tr>
+      <table border=1><tr><th>商品名</th><th>商品説明</th><th>画像</th><th>価格</th></tr>
       <?php
         session_start();
         $s_code = $_SESSION['s_code'];
