@@ -30,7 +30,7 @@
                             "SELECT * " .
                             "FROM goods " .
                             "WHERE g_s_code = " . $s_code.
-                             " AND g_code = " . $_POST['g_code'] , $con);
+                            " AND g_code = " . $_POST['g_code'] , $con);
         while($data = mysql_fetch_array($result)){
           echo '<tr><td><input type="text" name="g_name" value="' . $data['g_name'] . '">' . 
                '</td><td><input type="text" name="g_exp" value="' . $data['g_exp'] . '">' .
@@ -38,6 +38,8 @@
                '</td><td><input type="text" name="g_pri" value="' . $data['g_pri'] . '">' .
                '</td></tr>';
         }
+        $_SESSION['g_code'] = $data['g_code'];
+        $_SESSION['g_photmae'] = $data['g_phot'];
 
         $con = mysql_close($con);
         if(!$con){
