@@ -43,7 +43,7 @@
         if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
           $fileinfo = pathinfo($_FILES["g_phot"]["name"]);
           $fileext = strtoupper($fileinfo["extension"]);
-          $koko = substr($_SESSION['g_phot'], 7)
+          $koko = substr($_SESSION['g_phot'], 7);
           $gazoumei = $koko . '.' . $fileext;
           $_FILES["g_phot"]["name"] = $gazoumei;
       
