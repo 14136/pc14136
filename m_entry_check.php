@@ -1,4 +1,8 @@
-﻿<html>
+﻿
+
+
+
+<html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=shiftJIS" /></head>
 <title>米販売システム_新規会員登録_新規会員登録確認</title>
 <body>
@@ -20,17 +24,6 @@
 	</td>
 </tr>
 
-<tr>	<td width=180>お名前(フリガナ)</td>
-	<td>
-	<?php
-		$m_fname = htmlspecialchars($_POST['m_fname']);
-		echo $m_fname;
-		echo "<input type=\"hidden\" name=\"m_fname\" value=\""; 
-		echo $m_fname;
-		echo "\" />";
-	?>
-	</td>
-</tr>
 
 <tr>	<td width=180>宛先住所</td>
 	<td>
@@ -68,17 +61,6 @@
 	
 </tr>
 
-<tr>	<td width=180>会員コード</td>
-	<td>
-	<?php
-		$m_code = htmlspecialchars($_POST['m_code']);
-		echo $m_code;
-		echo "<input type=\"hidden\" name=\"m_code\" value=\""; 
-		echo $m_code;
-		echo "\" />";
-	?>
-	</td>
-</tr>
 
 <tr>	<td width=180>パスワード</td>
 	<td>
@@ -89,14 +71,15 @@
 		echo $m_pass;
 		echo "\" />";
 	?>
-	</td>
+	
 </tr>
 
-<tr align="center" valign="center"><td colspan="2"> <input type="submit" value="訂正"><a href="/m_entry.php" ></a></td></tr>
-<tr align="center" valign="center"><td colspan="2" ><input type="submit" value="確定" /></td></tr>
-</form>
 </table>
+<br>
 
+
+<center><input type="submit" value="確定">
+&nbsp;<input type="submit" value="訂正"><a href="/m_entry.php" ></center>
+</form>
 </body>
-</html>
 
