@@ -6,9 +6,9 @@
       $g_exp = $_POST['g_exp'];
       $g_phot = $_FILES["g_phot"]["tmp_name"];
       if($_SESSION['g_photmae'] != null){
-      $g_photmae = $_SESSION['g_photmae'];
+        $g_photmae = $_SESSION['g_photmae'];
       }else{
-      $g_photmae = $aaa;
+        $g_photmae = $aaa;
       }
       $g_pri = $_POST['g_pri'];
       
@@ -28,7 +28,7 @@
 
       $sqlstr = "UPDATE goods SET g_name = '" . $g_name . "'," . 
                                 " g_exp = '" . $g_exp . "'," . 
-                                " g_phot = '" . $g_photmae . "'," . 
+                                " g_phot = '" . $aaa . "'," . 
                                 " g_pri = " . $g_pri . 
                 " WHERE g_code = " . $_SESSION['g_code'];
 
@@ -63,6 +63,10 @@
           } else {
             echo "ファイルをアップロードできません。";
           }
+        }
+        $result = mysql_query('UPDATE goods SET g_phot = "gazou/' . $gazoumei . '" WHERE g_code = ' . $_SESSION['g_code'] );
+        if (!$result) {
+          die('クエリーが失敗しました。'.mysql_error());
         }
       }
 
