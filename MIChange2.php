@@ -38,7 +38,7 @@
                '</td><td><input type="text" name="g_pri" value="' . $data['g_pri'] . '">' .
                '</td></tr>';
         }
-        $_SESSION['g_code'] = $data['g_code'];
+        $_SESSION['g_code'] = $_POST['g_code'];
         $_SESSION['g_photmae'] = $data['g_phot'];
 
         $con = mysql_close($con);
