@@ -72,4 +72,3 @@
       //header('Location: http://172.20.17.202/kome/MIChange4.php');
 
 ?>
-<!-- -->
