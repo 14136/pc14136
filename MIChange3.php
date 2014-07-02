@@ -1,12 +1,16 @@
 ﻿<?php
       session_start();
+      $aaa = 'gazou/noimage.jpg';
       $s_code = $_SESSION['s_code'];
       $g_name = $_POST['g_name'];
       $g_exp = $_POST['g_exp'];
       $g_phot = $_FILES["g_phot"]["tmp_name"];
+      if($_SESSION['g_photmae'] != null){
       $g_photmae = $_SESSION['g_photmae'];
+      }else{
+      $g_photmae = $aaa;
       $g_pri = $_POST['g_pri'];
-      $aaa = 'gazou/noimage.jpg';
+      
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
