@@ -8,7 +8,7 @@
     <table border=1><tr><th></th><th>注文日</th><th>発送状態</th><th>顧客名</th><th>顧客住所</th><th>顧客TEL</th><th>顧客メールアドレス</th><th>注文商品</th><th>数量</th><th>単価</th><th>一点当たりの値引き額</th><th>請求金額</th></tr>
     <?php
       session_start();
-      $s_code = $_SESSION['s_code'];
+      $m_code = $_SESSION['m_code'];
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
@@ -31,7 +31,7 @@
                             "INNER JOIN history ON g_code = h_g_code " .
                             "LEFT JOIN member ON m_code = h_m_code " .
                             "LEFT JOIN discount ON d_g_code = g_code AND h_date BETWEEN d_open AND d_end " .
-                            "WHERE s_code =" . $s_code , $con);
+                            "WHERE m_code =" . $m_code , $con);
       while($data = mysql_fetch_array($result)){
         echo '<tr><td><input type="checkbox" name="h_code[]" value="' . $data['h_code'] . '">' . 
              '</td><td>' . $data['h_date'];

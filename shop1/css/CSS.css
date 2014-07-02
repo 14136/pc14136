@@ -1,0 +1,118 @@
+@charset"Shift_JIS";
+
+/*初期化*/
+
+*	{
+	margin:0;
+	padding:0;
+	}
+
+
+/* 全体の設定 */
+/* セレクタの書き方 */
+/* IDセレクタ "#[id] { }" */
+
+#contents{
+		 width:800px;
+		 margin:0 auto;
+		 text-align:center;
+		 }
+		 
+/* 前文の設定 */
+/* クラスセレクタ ".[class]" */
+
+.policy{
+		width:700px;
+		text-align:left;
+	   }
+
+/* 扇子の画像の回り込み */
+.policy img{
+		float:left;
+		 }
+
+/* 定義リストの設定 */
+dl         {
+		 border-top:1px solid #000099;
+		 border-bottom:1px solid #000099;
+		 padding:20px 0;
+		 }
+		 
+/* 見出しの設定 */
+dt		{
+		font-size:1.5em;
+		}
+		
+		
+.special {
+		margin:30px 0;
+		}
+
+/***** What's New *****/
+
+/*桜の開花情報の設定*/
+
+table#sakura	{
+		border:1px solid red;
+		}
+
+table#sakura th		{
+		border:1px solid red;
+		background-color:black;
+		color:white
+		}
+
+table#sakura td		{
+		border:1px solid red;
+		}
+
+/*四月に催しの設定*/
+
+table#april	{
+		border:1px solid black;
+		}
+
+table#april th		{
+		border:1px solid black;
+		background-color:red;
+		color:black;
+		}
+
+table#april td		{
+		border:1px solid black;
+		}
+
+/********** メニューの設定 **********/
+
+ul#menu li{ /* メニューを横並びにする */
+	list-style-type:none;
+	float:left;
+	}
+
+
+ul#menu li a{ /* メニューの幅・高さ・ボーダー・背景・テキストの色指定 */
+	display:block;
+	width:113px;
+	padding:10px 0;
+	border-right:1px solid #ffffff;
+	background-color:#000055;
+	text-decoration:none;
+	color:#ffffff;
+	font-weight:bold;
+	}
+
+
+ /* 7つ目のメニューの幅・ボーダー削除
+　　コンテンツの幅800とメニューの数7で割り切れないため
+　　最後のメニューだけ＋3pxして調整 */
+
+ul#menu li#menuend a{
+	border:none;
+	width:116px;
+	}
+
+
+hr	{ /* floatを切る指定 */
+	clear:both;
+	display:none;
+	}
