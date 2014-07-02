@@ -21,7 +21,7 @@
         exit('文字コードを指定できませんでした。');
       }
 
-      $sqlstr = "UPDATE goods SET g_naem = '" . $g_name . "'," . 
+      $sqlstr = "UPDATE goods SET g_name = '" . $g_name . "'," . 
                                 " g_exp = '" . $g_exp . "'," . 
                                 " g_phot = '" . $aaa . "'," . 
                                 " g_pri = " . $g_pri . 
@@ -44,7 +44,8 @@
         if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
           $fileinfo = pathinfo($_FILES["g_phot"]["name"]);
           $fileext = strtoupper($fileinfo["extension"]);
-          $koko = substr($_SESSION["g_phot"], 7);
+          $kuku = $_SESSION["g_phot"];
+          $koko = substr($kuku, 7);
           $gazoumei = $koko . '.' . $fileext;
           $_FILES["g_phot"]["name"] = $gazoumei;
       
