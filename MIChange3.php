@@ -50,7 +50,7 @@
           $fileinfo = pathinfo($_FILES["g_phot"]["name"]);
           $fileext = strtoupper($fileinfo["extension"]);
           $kuku = $_SESSION["g_photmae"];
-          echo $_SESSION["g_photmae"];
+          //echo $_SESSION["g_photmae"];
           mb_internal_encoding("UTF-8");
           $koko = mb_substr($kuku, 7);
           $gazoumei = $koko . '.' . $fileext;
