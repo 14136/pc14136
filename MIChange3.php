@@ -49,7 +49,7 @@
         if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
           $fileinfo = pathinfo($_FILES["g_phot"]["name"]);
           $fileext = strtoupper($fileinfo["extension"]);
-          $kuku = $g_code;
+          $kuku = $_SESSION['g_code'];
           //echo $_SESSION["g_photmae"];
           mb_internal_encoding("UTF-8");
           
