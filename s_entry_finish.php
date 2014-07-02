@@ -1,7 +1,45 @@
 ﻿<html>
-<head><meta http-equiv="Content-Type" content="text/html; charset=shiftJIS" /></head>
-<title>米販売システム_販売会員登録_販売会員登録完了</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>米販売システム_新規会員登録確認_新規会員登録完了</title>
+</head>
 <body>
+<?php
+
+$con = mysql_connect('172.20.17.202','admin','1111');
+if (!$con) {
+  exit('データベースに接続できませんでした。');
+}
+
+$result = mysql_select_db('riceshop', $con);
+if (!$result) {
+  exit('データベースを選択できませんでした。');
+}
+
+$result = mysql_query('SET NAMES utf8', $con);
+if (!$result) {
+  exit('文字コードを指定できませんでした。');
+}
+$s_pass  = $_REQUEST['s_pass'];
+$s_comp = $_REQUEST['s_comp'];
+$s_name  = $_REQUEST['s_name'];
+$s_add  = $_REQUEST['s_add'];
+$s_tel  = $_REQUEST['s_tel'];
+$s_mail  = $_REQUEST['s_mail'];
+
+$result = mysql_query("INSERT INTO s_member(s_code, s_pass, s_comp, s_name, s_add, s_tel, s_mail) VALUES(null,' $s_pass ',' $s_comp ',' $s_name ',' $s_add ',' $s_tel ',' $s_mail ')",$con);
+if (!$result) {
+  exit('データを登録できませんでした。');
+}
+
+$con = mysql_close($con);
+if (!$con) {
+  exit('データベースとの接続を閉じられませんでした。');
+}
+?>
+
+
+
 <center><h1><font color="#FF0000">販売会員登録完了</font></h1></center>
 
 <br><center>
@@ -10,7 +48,10 @@
 </h3>
 </center>
 <br>
-<h5>販売会員メニューは<a href=".php" >こちら</a></h5>
+
+
+
+
 
 
 
@@ -22,19 +63,11 @@
 	<td>
 	<?php
 		$s_name = htmlspecialchars($_POST['s_name']);
-		echo s_name;
+		echo $s_name;
 	?>	
 	</td>
 </tr>
 
-<tr>	<td width=180>代表者名(フリガナ)</td>
-	<td>
-	<?php
-		$s_fname = htmlspecialchars($_POST['s_fname']);
-		echo s_fname;
-	?>	
-	</td>
-</tr>
 
 <tr>	<td width=180>販売企業名</td>
 	<td>
@@ -72,15 +105,6 @@
 	</td>
 </tr>
 
-<tr>	<td width=180>会員コード</td>
-	<td>
-	<?php
-		$s_code = htmlspecialchars($_POST['s_code']);
-		echo $s_code;
-	?>	
-	</td>
-</tr>
-
 <tr>	<td width=180>パスワード</td>
 	<td>
 	<?php
@@ -91,7 +115,7 @@
 </tr>
 </table>
 <br>
+<center><h2>販売会員メニューは<a href="m_mainmenu.php" >こちら</a></h2></center>
 
-<h5><a href="mainmenu.php" >メインメニューに戻る</a></h5>
 </body>
 </html>

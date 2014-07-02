@@ -21,9 +21,9 @@
 </Td><Td align="center">
 <a href="s_login.php">販売会員ログイン
 </Td><Td align="center">
-<a href="m_entry.php">会員登録
+<a href="m_entry.html">会員登録
 </Td><Td align="center">
-<a href="s_entry.php">販売会員登録
+<a href="s_entry.html">販売会員登録
 </Td></Tr>
 </Table>
 <br>

@@ -20,17 +20,6 @@
 	</td>
 </tr>
 
-<tr>	<td width=180>代表者名(フリガナ)</td>
-	<td>
-	<?php
-		$s_fname = htmlspecialchars($_POST['s_fname']);
-		echo $s_fname;
-		echo "<input type=\"hidden\" name=\"s_fname\" value=\""; 
-		echo $s_fname;
-		echo "\" />";
-	?>
-	</td>
-</tr>
 
 <tr>	<td width=180>販売企業名</td>
 	<td>
@@ -78,17 +67,6 @@
 	</td>
 </tr>
 
-<tr>	<td width=180>会員コード</td>
-	<td>
-	<?php
-		$s_code = htmlspecialchars($_POST['s_code']);
-		echo $s_code;
-		echo "<input type=\"hidden\" name=\"s_code\" value=\""; 
-		echo $s_code;
-		echo "\" />";
-	?>
-	</td>
-</tr>
 
 
 <tr>	<td width=180>パスワード</td>
@@ -102,12 +80,13 @@
 	?>
 	</td>
 </tr>
-
-
-<tr align="center" valign="center"><td colspan="2"> <input type="submit" value="訂正"><a href="/s_entry.php" ></a></td></tr>
-<tr align="center" valign="center"><td colspan="2" ><input type="submit" value="確定" /></td></tr>
-</form>
 </table>
+
+<br>
+<center><input type="submit" value="確定">
+&nbsp;<input type="submit" value="訂正"><a href="/s_entry.php" ></center>
+
+</form>
 
 </body>
 </html>

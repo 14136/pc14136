@@ -1,7 +1,52 @@
 ﻿<html>
-<head><meta http-equiv="Content-Type" content="text/html; charset=shiftJIS" /></head>
-<title>米販売システム_会員登録_会員登録完了 </title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>米販売システム_新規会員登録確認_新規会員登録完了</title>
+</head>
 <body>
+<?php
+
+$con = mysql_connect('172.20.17.202','admin','1111');
+if (!$con) {
+  exit('データベースに接続できませんでした。');
+}
+
+$result = mysql_select_db('riceshop', $con);
+if (!$result) {
+  exit('データベースを選択できませんでした。');
+}
+
+$result = mysql_query('SET NAMES utf8', $con);
+if (!$result) {
+  exit('文字コードを指定できませんでした。');
+}
+$m_pass  = $_REQUEST['m_pass'];
+$m_name = $_REQUEST['m_name'];
+$m_add  = $_REQUEST['m_add'];
+$m_tel  = $_REQUEST['m_tel'];
+$m_mail  = $_REQUEST['m_mail'];
+
+$result = mysql_query("INSERT INTO member(m_code, m_pass, m_name, m_add, m_tel, m_mail) VALUES(null,' $m_pass ',' $m_name ',' $m_add ',' $m_tel ',' $m_mail ')",$con);
+if (!$result) {
+  exit('データを登録できませんでした。');
+}
+
+$con = mysql_close($con);
+if (!$con) {
+  exit('データベースとの接続を閉じられませんでした。');
+}
+
+ ?>
+
+
+
+
+
+
+
+
+
+
 <center><h1><font color="#FF0000">会員登録完了</font></h1></center>
 
 <br><center>
@@ -10,7 +55,7 @@
 </h3>
 </center>
 <br>
-<h5>会員メニューは<a href=".php" >こちら</a></h5>
+
 
 
 
@@ -22,19 +67,11 @@
 	<td>
 	<?php
 		$m_name = htmlspecialchars($_POST['m_name']);
-		echo m_name;
+		echo $m_name;
 	?>	
 	</td>
 </tr>
 
-<tr>	<td width=180>お名前(フリガナ)</td>
-	<td>
-	<?php
-		$m_fname = htmlspecialchars($_POST['m_fname']);
-		echo m_fname;
-	?>	
-	</td>
-</tr>
 
 <tr>	<td width=180>宛先住所</td>
 	<td>
@@ -48,7 +85,7 @@
 <tr>	<td width=180>電話番号</td>
 	<td>
 	<?php
-		$m_tel = htmlspecialchars($_POST['m_name']);
+		$m_tel = htmlspecialchars($_POST['m_tel']);
 		echo $m_tel;
 	?>
 	</td>
@@ -63,14 +100,7 @@
 	</td>
 </tr>
 
-<tr>	<td width=180>会員コード</td>
-	<td>
-	<?php
-		$m_code = htmlspecialchars($_POST['m_code']);
-		echo $m_code;
-	?>	
-	</td>
-</tr>
+
 
 <tr>	<td width=180>パスワード</td>
 	<td>
@@ -82,7 +112,7 @@
 </tr>
 </table>
 <br>
+<center><h2>会員メニューは<a href="m_mainmenu.php" >こちら</a></h2></center>
 
-<h5><a href="mainmenu.php" >メインメニューに戻る</a></h5>
 </body>
 </html>
