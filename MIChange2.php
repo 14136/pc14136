@@ -37,9 +37,10 @@
                '</td><td><img src="' . $data['g_phot'] . '"><input type="file" name="g_phot" accept="image/jpeg,image/png,image/gif" size="50">' .
                '</td><td><input type="text" name="g_pri" value="' . $data['g_pri'] . '">' .
                '</td></tr>';
+          $_SESSION['g_photmae'] = $data['g_phot'];
         }
         $_SESSION['g_code'] = $_POST['g_code'];
-        $_SESSION['g_photmae'] = $data['g_phot'];
+        
 
         $con = mysql_close($con);
         if(!$con){
