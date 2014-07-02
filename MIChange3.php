@@ -3,8 +3,8 @@
       $s_code = $_SESSION['s_code'];
       $g_name = $_POST['g_name'];
       $g_exp = $_POST['g_exp'];
-      $g_phot = $_POST['phot'];
-      $g_photmae = $_SESSION['photmae'];
+      $g_phot = $_POST['g_phot'];
+      $g_photmae = $_SESSION['g_photmae'];
       $g_pri = $_POST['g_pri'];
       $aaa = 'gazou/noimage.jpg';
 
