@@ -9,6 +9,7 @@
       $g_photmae = $_SESSION['g_photmae'];
       }else{
       $g_photmae = $aaa;
+      }
       $g_pri = $_POST['g_pri'];
       
 
