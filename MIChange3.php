@@ -47,6 +47,7 @@
           $kuku = $_SESSION["g_phot"];
           $koko = substr($kuku, 7);
           $gazoumei = $koko . '.' . $fileext;
+          echo $gazoumei;
           $_FILES["g_phot"]["name"] = $gazoumei;
       
           if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
