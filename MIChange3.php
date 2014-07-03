@@ -40,10 +40,12 @@
         print('クエリーが成功しました。');
       }
       
-      if($g_phot != null AND $aaa != $g_photmae){
-        $filename = $g_photmae;
-        if ( file_exists($filename) ) {
-          unlink($filename) or die('ファイル削除に失敗\n');
+      if($g_phot != null){
+        if($aaa != $g_photmae){
+          $filename = $g_photmae;
+          if ( file_exists($filename) ) {
+            unlink($filename) or die('ファイル削除に失敗\n');
+          }
         }
 
         if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
