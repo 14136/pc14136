@@ -45,15 +45,7 @@
       }
     ?>
     <table>
+    <input type="button" value="メニューに戻る" onClick="location.href='http://172.20.17.202/kome/SMemberMenu.php'">
+    <input type="button" value="続けて登録する" onClick="location.href='http://172.20.17.202/kome/MIRegistration.php'">
   </body>
 </html> 
-
-
-<!--
-SELECT *
-FROM goods INNER JOIN s_member ON g_s_code = s_code
-INNER JOIN history ON g_code = h_g_code
-LEFT JOIN member ON m_code = h_m_code
-LEFT JOIN discount ON d_g_code = g_code AND h_date BETWEEN d_open AND d_end
-WHERE s_code = 1;
--->
