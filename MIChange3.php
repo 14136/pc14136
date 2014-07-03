@@ -39,19 +39,19 @@
       }else{
         print('クエリーが成功しました。');
       }
-
+      echo "0".$_FILES["g_phot"]["tmp_name"];
       if($g_phot != null AND $g_phot != $g_photmae){
         $filename = $g_phot;
         if ( file_exists($filename) ) {
           unlink($filename) or die('ファイル削除に失敗\n');
         }
-
+        echo "1".$_FILES["g_phot"]["tmp_name"];
         if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
           $fileinfo = pathinfo($_FILES["g_phot"]["name"]);
           $fileext = strtoupper($fileinfo["extension"]);
           $gazoumei = $_SESSION['g_code'] . '.' . $fileext;
           $_FILES["g_phot"]["name"] = $gazoumei;
-      
+         echo "2".$_FILES["g_phot"]["tmp_name"];
           if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
             chmod("gazou/" . $_FILES["g_phot"]["name"], 0644);
             echo $_FILES["g_phot"]["name"] . "をアップロードしました。";
