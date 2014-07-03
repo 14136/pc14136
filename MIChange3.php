@@ -41,7 +41,7 @@
       }
       
       if($g_phot != null AND $aaa != $g_photmae){
-        $filename = $g_phomaet;
+        $filename = $g_photmae;
         if ( file_exists($filename) ) {
           unlink($filename) or die('ファイル削除に失敗\n');
         }
