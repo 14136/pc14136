@@ -28,7 +28,7 @@
 
       $sqlstr = "UPDATE goods SET g_name = '" . $g_name . "'," . 
                                 " g_exp = '" . $g_exp . "'," . 
-                                " g_phot = '" . $aaa . "'," . 
+                                " g_phot = '" . $g_photmae . "'," . 
                                 " g_pri = " . $g_pri . 
                 " WHERE g_code = " . $_SESSION['g_code'];
 
