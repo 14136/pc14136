@@ -49,12 +49,7 @@
         if (is_uploaded_file($_FILES["g_phot"]["tmp_name"])) {
           $fileinfo = pathinfo($_FILES["g_phot"]["name"]);
           $fileext = strtoupper($fileinfo["extension"]);
-          $kuku = $_SESSION['g_code'];
-          //echo $_SESSION["g_photmae"];
-          mb_internal_encoding("UTF-8");
-          
-          $gazoumei = $kuku . '.' . $fileext;
-          echo $gazoumei;
+          $gazoumei = $_SESSION['g_code'] . '.' . $fileext;
           $_FILES["g_phot"]["name"] = $gazoumei;
       
           if (move_uploaded_file($_FILES["g_phot"]["tmp_name"], "gazou/" . $_FILES["g_phot"]["name"])) {
