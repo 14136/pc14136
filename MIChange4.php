@@ -29,7 +29,6 @@
                             "FROM goods " .
                             "WHERE g_s_code = " . $_SESSION['s_code'] . 
                             " AND g_code = " . $_SESSION['g_code'];
-      echo $sqlstr;
       $result = mysql_query($sqlstr);
       $data = mysql_fetch_array($result);
       echo '</td><td>' . $data['g_name'] . 
@@ -45,5 +44,8 @@
       }
     ?>
     <table>
+    <input type="button" value="メニューに戻る" onClick="location.href='http://172.20.17.202/kome/SMemberMenu.php'">
+    <input type="button" value="続けて変更する" onClick="location.href='http://172.20.17.202/kome/MIChange.php'">
+
   </body>
 </html> 
