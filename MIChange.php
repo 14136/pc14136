@@ -46,17 +46,7 @@
 
     ?>
     </table> 
-    <p><input type="submit" value="変更する"></p>
+    <p><input type="submit" value="変更する" ></p>
     </form>
   </body>
 </html>
-
-
-<!--
-SELECT *
-FROM goods INNER JOIN s_member ON g_s_code = s_code
-INNER JOIN history ON g_code = h_g_code
-LEFT JOIN member ON m_code = h_m_code
-LEFT JOIN discount ON d_g_code = g_code AND h_date BETWEEN d_open AND d_end
-WHERE s_code = 1;
--->
