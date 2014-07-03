@@ -35,7 +35,7 @@
              '</td><td>' . $data['g_name'] .
              '</td><td>' . $data['g_exp'] . 
              '</td><td><img src="' . $data['g_phot'] . 
-             '"></td><td>' . $data['g_pri'] . 
+             '" height="100"></td><td>' . $data['g_pri'] . 
              '</td></tr>';
       }
 

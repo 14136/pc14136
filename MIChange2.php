@@ -34,7 +34,7 @@
         while($data = mysql_fetch_array($result)){
           echo '<tr><td><input type="text" name="g_name" value="' . $data['g_name'] . '">' . 
                '</td><td><input type="text" name="g_exp" value="' . $data['g_exp'] . '">' .
-               '</td><td><img src="' . $data['g_phot'] . '"><input type="file" name="g_phot" accept="image/jpeg,image/png,image/gif" size="50">' .
+               '</td><td><img src="' . $data['g_phot'] . '" height="100"><input type="file" name="g_phot" accept="image/jpeg,image/png,image/gif" size="50">' .
                '</td><td><input type="text" name="g_pri" value="' . $data['g_pri'] . '">' .
                '</td></tr>';
           $_SESSION['g_photmae'] = $data['g_phot'];
