@@ -31,12 +31,26 @@
       $data = mysql_fetch_array($result);
 
       if($data == 0){
-        $sqlstr = "DELETE FROM discount " .
+        $sqlstr = "SELECT COUNT(*) " .
+                            "FROM discount " .
                             "WHERE d_g_code = " . $_SESSION['g_code'];
         $result = mysql_query($sqlstr);
-        $sqlstr = "DELETE FROM history " .
+        $data = mysql_fetch_array($result);
+        if($data != 0){
+          $sqlstr = "DELETE FROM discount " .
+                            "WHERE d_g_code = " . $_SESSION['g_code'];
+          $result = mysql_query($sqlstr);
+        }
+        $sqlstr = "SELECT COUNT(*) " .
+                            "FROM history " .
                             "WHERE h_g_code = " . $_SESSION['g_code'];
         $result = mysql_query($sqlstr);
+        $data = mysql_fetch_array($result);
+        if($data != 0){
+          $sqlstr = "DELETE FROM history " .
+                            "WHERE h_g_code = " . $_SESSION['g_code'];
+          $result = mysql_query($sqlstr);
+        }
         $sqlstr = "DELETE FROM goods " .
                             "WHERE g_code = " . $_SESSION['g_code'];
         $result = mysql_query($sqlstr);
