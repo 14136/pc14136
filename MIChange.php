@@ -50,7 +50,7 @@
 
     ?>
     </table> 
-    <p><input type="submit" value="変更する" ></p>
+    <p><input type="submit" value="変更する" ><input type="button" value="メニューに戻る" onClick="location.href='http://172.20.17.202/kome/SMemberMenu.php'"></p>
     </form>
   </body>
 </html>
