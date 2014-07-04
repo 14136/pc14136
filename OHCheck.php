@@ -67,6 +67,8 @@
     ?>
     </table>
     <p><input type="submit" value="選択した注文を発送済みにする" name="sumi"><input type="submit" value="選択した注文を未発送にする" name="mi"></p>
+    <p><input type="button" value="メニューに戻る" onClick="location.href='http://172.20.17.202/kome/SMemberMenu.php'">
+    <input type="button" value="続けて変更する" onClick="location.href='http://172.20.17.202/kome/MIChange.php'"></p>
     </form>
   </body>
 </html>

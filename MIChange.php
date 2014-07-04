@@ -25,14 +25,18 @@
       if(!$result){
         exit('文字コードを指定できませんでした。');
       }
-
+      $tt = 1;
       $result = mysql_query(
                             "SELECT * " .
                             "FROM goods " .
                             "WHERE g_s_code =" . $s_code , $con);
       while($data = mysql_fetch_array($result)){
-        echo '<tr><td><input type="radio" name="g_code" value="' . $data['g_code'] . '">' . 
-             '</td><td>' . $data['g_name'] .
+        echo '<tr><td><input type="radio" name="g_code" value="' . $data['g_code'] . '"' ;
+             if($tt == 1){
+               echo ' checked="checked"';
+               $tt = 0;
+             } 
+        echo '></td><td>' . $data['g_name'] .
              '</td><td>' . $data['g_exp'] . 
              '</td><td><img src="' . $data['g_phot'] . 
              '" height="100"></td><td>' . $data['g_pri'] . 
