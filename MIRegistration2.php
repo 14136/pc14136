@@ -2,8 +2,10 @@
       session_start();
       $s_code = $_SESSION['s_code'];
       $g_name = $_POST['g_name'];
+      $nenndo = $_POST['nenndo'];
       $g_exp = $_POST['g_exp'];
       $g_pri = $_POST['g_pri'];
+      $g_name = $g_name . $nenndo;
       $aaa = 'gazou/noimage.jpg';
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
