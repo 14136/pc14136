@@ -49,7 +49,8 @@
 
       ?>
       </table>
-      <input type="submit" value="登録">
+      <input type="submit" value="変更を登録する">
     </form>
+    <input type="button" value="この商品を削除する" onClick="location.href='http://172.20.17.202/kome/MIChange5.php'">
   </body>
 </html>
