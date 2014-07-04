@@ -26,7 +26,7 @@
       $sqlstr = "SELECT COUNT(*) " .
                             "FROM history " .
                             "WHERE h_g_code = " . $_SESSION['g_code'] . 
-                            " AND pri = 0";
+                            " AND g_pri = 0";
       $result = mysql_query($sqlstr);
       $data = mysql_fetch_array($result);
 
