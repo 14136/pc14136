@@ -11,7 +11,7 @@
   </head>
   <body>
     <?php
-      session_start(); 
+      //session_start(); 
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
