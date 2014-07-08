@@ -1,4 +1,10 @@
-﻿<html>
+﻿<?php
+      session_start();
+      if($_SESSION['s_name'] == null){
+       header('Location: http://172.20.17.202/kome/SLogin.php');
+      }
+?>
+<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>商品情報登録</title>

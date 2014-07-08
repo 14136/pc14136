@@ -1,4 +1,9 @@
 ﻿<?php
+      session_start();
+      if($_SESSION['s_name'] == null){
+       header('Location: http://172.20.17.202/kome/SLogin.php');
+      }
+
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
       if(!$con){
         exit('データベースに接続できませんでした。');

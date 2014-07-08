@@ -1,5 +1,11 @@
 <?php
       session_start();
+      if($_SESSION['s_name'] == null){
+       header('Location: http://172.20.17.202/kome/SLogin.php');
+      }
+?>
+<?php
+      session_start();
       $s_code = $_SESSION['s_code'];
       $g_name = $_POST['g_name'];
       $nenndo = $_POST['nenndo'];
