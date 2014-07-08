@@ -11,7 +11,7 @@
   </head>
   <body>
     <?php
-      session_start();
+      //session_start();
       print("<p>".$_SESSION['s_name']."さんようこそ</p>");
     ?>
     <p><a href="http://172.20.17.202/kome/MIRegistration.php">商品情報登録</a></p>
