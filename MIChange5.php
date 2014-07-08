@@ -30,7 +30,7 @@
       $result = mysql_query($sqlstr);
       $data = mysql_fetch_array($result);
 
-      if($data == 0){
+      if($data == null){
         $sqlstr = "SELECT COUNT(*) " .
                             "FROM discount " .
                             "WHERE d_g_code = " . $_SESSION['g_code'];
