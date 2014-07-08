@@ -54,7 +54,7 @@
 <tr>	<td width=180>郵便番号</td>
 	<td>
 	<?php
-		$m_pass = htmlspecialchars($_POST['m_post1']);
+		$m_post1 = htmlspecialchars($_POST['m_post1']);
 		echo $m_post1;
 		echo "<input type=\"hidden\" name=\"m_post\" value=\""; 
 		echo $m_post1;
