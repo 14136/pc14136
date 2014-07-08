@@ -3,7 +3,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>ログイン</title>
   </head>
-  <body>
+  <body align="center">
+    <br><br><br><br>
     <p>販売会員コードとパスワードを入力してください</p>
     <form action="SLogin2.php" method="post">
       <table border="1">
