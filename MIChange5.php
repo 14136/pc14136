@@ -23,13 +23,14 @@
       }
       
 
-      $sqlstr = "SELECT COUNT(*) " .
+      $sqlstr = "SELECT COUNT(*) AS cnt " .
                             "FROM history " .
                             "WHERE h_g_code = " . $_SESSION['g_code'] . 
                             " AND h_pri = 0";
       $result = mysql_query($sqlstr);
       $data = mysql_fetch_array($result);
-      echo $data['h_pri'];
+
+      echo $data['cnt'];
       if($data === null){
         $sqlstr = "SELECT COUNT(*) " .
                             "FROM discount " .
