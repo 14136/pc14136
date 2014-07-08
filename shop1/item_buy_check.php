@@ -1,25 +1,57 @@
 ﻿<?php
-         
+	require 'common.php';
+	if(!isset($_SESSION['cart'])){
+	      		print("<html><head><title>エラー</title></head><body><h1>エラー</h1>");
+      		print("カートに何も入っていません。<br /><br />\n");
+      		print("<a href=\"cart.php\">カート</a>\n");
+      		print("</body></html>");
+      		exit;
+	}
+
+?>
+<?php         
 	$name = htmlspecialchars($_POST['name']);
+	$f_pos = htmlspecialchars($_POST['f_pos']);
+	$b_pos = htmlspecialchars($_POST['b_pos']);
 	$h_add = htmlspecialchars($_POST['h_add']);
 	$h_tel = htmlspecialchars($_POST['h_tel']);
 	$h_mail = htmlspecialchars($_POST['h_mail']);
-
+	dataCheckNumber2($f_pos,"郵便番号");
+	dataCheckNumber3($b_pos,"郵便番号");
 	dataCheckNumber($h_tel,"電話番号");
 	dataCheckNull($name,"お名前");
 	dataCheckNull($h_add,"宛先住所");
 	dataCheckNull($h_mail,"メールアドレス");
 
-
 	function dataCheckNumber($str,$name){
-    		if(strlen($str) == 0 || ereg("[^0-9]",$str)){
+    		if(strlen($str) < 10 || strlen($str) > 11 || ereg("[^0-9]",$str)){
       		print("<html><head><title>入力エラー</title></head><body><h1>入力エラー</h1>");
-      		print($name." は半角数字を入力してください。<br /><br />\n");
+      		print($name." は正しい数値を入力してください。<br /><br />\n");
       		print("<a href=\"#\" onClick=\"history.back(); return false;\">再入力</a>\n");
       		print("</body></html>");
       		exit;
     		}
   	}
+
+	function dataCheckNumber2($str,$name){
+    		if(strlen($str) != 3 || ereg("[^0-9]",$str)){
+      		print("<html><head><title>入力エラー</title></head><body><h1>入力エラー</h1>");
+      		print($name." は正しい数値を入力してください。<br /><br />\n");
+      		print("<a href=\"#\" onClick=\"history.back(); return false;\">再入力</a>\n");
+      		print("</body></html>");
+      		exit;
+    		}
+  	}
+	function dataCheckNumber3($str,$name){
+    		if(strlen($str) != 4 || ereg("[^0-9]",$str)){
+      		print("<html><head><title>入力エラー</title></head><body><h1>入力エラー</h1>");
+      		print($name." は正しい数値を入力してください。<br /><br />\n");
+      		print("<a href=\"#\" onClick=\"history.back(); return false;\">再入力</a>\n");
+      		print("</body></html>");
+      		exit;
+    		}
+  	}
+
 	function dataCheckNull($str,$name){
     		if(strlen($str) == 0 ){
       		print("<html><head><title>入力エラー</title></head><body>");
@@ -43,8 +75,6 @@
 <tr align="center" valign="center"><td>商品名</td><td>単価（税込）</td><td>注文数</td><td>小計（税込）</td></tr>
 
 <?php
-
-	require 'common.php';
 	$pdo = connect();
 	$sum_pri =0;
 	$sum_poin = 0;
@@ -57,14 +87,14 @@
 
 <tr align="center" valign="center">
 <td><?php echo $row['g_name']; ?></td> <!-- 商品名 -->
-<td><?php echo $row['g_pri']; ?>円</td> <!-- 単価 -->
+<td><?php echo number_format($row['g_pri']); ?>円</td> <!-- 単価 -->
 <td><?php echo $num; ?></td>  <!-- 注文数 -->
-<td><?php echo $row['g_pri'] * $num; $sum_pri += $row['g_pri'] * $num;?>円</td> <!-- 小計 -->
+<td><?php echo number_format($row['g_pri'] * $num); $sum_pri += $row['g_pri'] * $num;?>円</td> <!-- 小計 -->
 </tr>
 <?php			
 	} 
 ?>
-<tr align="center" valign="center"><td>合計</td><td></td><td></td><td><?php echo $sum_pri; ?>円</td></tr>
+<tr align="center" valign="center"><td>合計</td><td colspan="2"></td><td><?php echo number_format($sum_pri); ?>円</td>
 
 </table>
 <br>
@@ -85,6 +115,21 @@
 	?>
 	</td>
 </tr>
+<tr>	<td width=180>郵便番号</td>
+	<td>
+	<?php
+		$h_pos = $f_pos."-".$b_pos;
+		echo $h_pos;
+		echo "<input type=\"hidden\" name=\"bf_pos\" value=\""; 
+		echo $f_pos.$b_pos;
+		echo "\" />";
+		echo "<input type=\"hidden\" name=\"h_pos\" value=\""; 
+		echo $h_pos;
+		echo "\" />";
+	?>
+	</td>
+</tr>
+
 <tr>	<td width=180>宛先住所</td>
 	<td>
 	<?php 

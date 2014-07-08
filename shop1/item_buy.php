@@ -21,6 +21,21 @@
 <title>米販売システム_商品購入_注文者情報入力</title>
 <body>
 <center><h1><font color="#FF0000">注文者情報入力</font>　→　注文内容確認　→　完了<h1></center>
+<Table border="1"align="center" width=% height="30" cellspacing="0" cellpadding="0">
+<Tr><Td align="center">
+<a href="mainmenu.php">HOME
+</Td><Td align="center">
+<a href="m_login.php">会員ログイン
+</Td><Td align="center">
+<a href="s_login.php">販売会員ログイン
+</Td><Td align="center">
+<a href="m_entry.html">会員登録
+</Td><Td align="center">
+<a href="s_entry.html">販売会員登録
+</Td></Tr>
+</Table>
+<br>
+<br>
 <!--買い物のかごの内容を表示、確認 -->
 <table border="3" align="center">
 <caption><h3>買い物かごには、以下の商品が入ってます。</h3></caption>
@@ -38,20 +53,21 @@
 
 <tr align="center" valign="center">
 <td><?php echo $row['g_name']; ?></td> <!-- 商品名 -->
-<td><?php echo $row['g_pri']; ?>円</td> <!-- 単価 -->
+<td><?php echo number_format($row['g_pri']);?>円</td> <!-- 単価 -->
 <td><?php echo $num; ?></td>  <!-- 注文数 -->
-<td><?php echo $row['g_pri'] * $num; $sum_pri += $row['g_pri'] * $num;?>円</td> <!-- 小計 -->
-<td><?php echo $row['g_pri'] * $num * 0.1; $sum_poin += $row['g_pri'] * $num * 0.1;  ?>pt</td> <!-- ポイント -->
+<td><?php echo number_format($row['g_pri'] * $num);
+		 $sum_pri += $row['g_pri'] * $num;?>円</td> <!-- 小計 -->
+<td><?php echo number_format($row['g_pri'] * $num * 0.1); $sum_poin += $row['g_pri'] * $num * 0.1;  ?>pt</td> <!-- ポイント -->
 </tr>
 <?php	
 	}
 
 ?>
-<tr align="center" valign="center"><td>合計</td><td></td><td></td><td><?php echo $sum_pri; ?>円</td><td><?php echo $sum_poin; ?>pt</td></tr>
+<tr align="center" valign="center"><td>合計</td><td colspan="2"></td><td><?php echo number_format($sum_pri); ?>円</td><td><?php echo number_format($sum_poin);?>pt</td></tr>
 </table>
 <br>
 <center><font color="#FF0000">商品を削除する場合はカートで行ってください</font><br>
-<a href="cart.php" >カートに戻る</a></center>
+<a href="index.php">お買い物に戻る</a>　　　　　<a href="cart.php" >カートに戻る</a></center>
 
 
 <!--会員が行う処理 -->
@@ -60,8 +76,8 @@
 <form name="form1" action="m_item_buy_check.php" method="post">
 <tr><td colspan="3">会員の方</td></tr>
 <tr align="center" valign="center" ><td colspan="3">下のフォームにユーザID、パスワードを入力して「次へ」ボタンを押してください。</td></tr> 
-<tr><td>会員コード　　　</td><td><input type="text" name="m_code" size="38" maxlength="7" /></td><td rowspan="4" >会員情報を変更されたい方は<a href="member_update.php" >こちら</a></td></tr>
-<tr><td>パスワード　　　</td><td><input type="text" name="m_pass" size="38" maxlength="4" /></td></tr>
+<tr><td>会員コード　　　</td><td><input type="text" name="m_code" size="39" maxlength="7" /></td><td rowspan="4" >会員情報を変更されたい方は<a href="member_update.php" >こちら</a></td></tr>
+<tr><td>パスワード　　　</td><td><input type="password" name="m_pass" size="40" maxlength="4" /></td></tr>
 <tr><td>ポイントを使用する場合は<br>チェックしてください。</td><td align="center" valign="center"><input name="point" type="hidden" value="NULL回避用" /><input type="checkbox" name="point" value="1" /></td></tr> 
 <tr><td align="center" colspan="2">宛先住所を変更する場合は<a href="m_item_buy_henkou.php" >こちら</a></td></tr> 
 <tr align="center" valign="center"><td colspan="3" ><input type="submit" value="次へ" /></td></tr>
@@ -79,11 +95,11 @@
 米販売システムでは、会員登録をされていなくてもお買い物ができます。<br> ※お買い物時のポイントがつきませんのでご注意ください。<br>
  必須の項目は必ず入力してください。</td></tr> 
 
-<tr><td>お名前（任意）　　　</td><td><input type="text" name="name" size="52" /></td><td rowspan="4" >会員登録をされたい方は<a href="/" >こちら</a></td></tr>
-<tr><td>宛先住所(必須)　　　</td><td><input type="text" name="h_add" size="52" maxlength="50" /></td></tr>
-<tr><td>電話番号（必須）　　　</td><td><input type="text" name="h_tel" size="52" maxlength="20" /></td></tr>
-<tr><td>メールアドレス（必須）　　　</td><td><input type="text" name="h_mail" size="52" maxlength="50" /></td></tr>
-
+<tr><td>お名前（必須）　　　</td><td><input type="text" name="name" size="55" /></td><td rowspan="5" >会員登録をされたい方は<a href="/" >こちら<a></td></tr>
+<tr><td>宛先郵便番号（必須）　　　</td><td><input type="text" name="f_pos" size="23" maxlength="3" />-<input type="text" name="b_pos" size="25" maxlength="4" /></td></tr>
+<tr><td>宛先住所(必須)　　　</td><td><input type="text" name="h_add" size="55" maxlength="50" /></td></tr>
+<tr><td>電話番号（必須）　　　</td><td><input type="text" name="h_tel" size="55" maxlength="11" /></td></tr>
+<tr><td>メールアドレス（必須）　　　</td><td><input type="text" name="h_mail" size="55" maxlength="50" /></td></tr>
 <tr align="center" valign="center"><td colspan="3" ><input type="submit" value="次へ" /></td></tr>
 </form>
 </table>

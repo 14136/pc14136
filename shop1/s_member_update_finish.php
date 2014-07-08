@@ -10,11 +10,13 @@
 	$s_add = htmlspecialchars($_POST['s_add']);
 	$s_tel = htmlspecialchars($_POST['s_tel']);
 	$s_mail = htmlspecialchars($_POST['s_mail']);
-	$s_code = 3;
+	$s_post = htmlspecialchars($_POST['bf_pos']);
+	$h_pos2 = htmlspecialchars($_POST['h_pos']);
+	$s_code = 10;
         require 'common.php';
 	$pdo = connect();
-        $st = $pdo->prepare("UPDATE s_member SET s_pass= ?,s_comp = ?,s_name= ?,s_add= ?,s_tel=?,s_mail= ? WHERE s_code= ?;");
-        $st->execute(array($s_pass,$s_comp,$s_name,$s_add,$s_tel,$s_mail,$s_code));
+        $st = $pdo->prepare("UPDATE s_member SET s_pass= ?,s_comp = ?,s_name= ?,s_add= ?,s_tel=?,s_mail= ?,s_post = ? WHERE s_code= ?;");
+        $st->execute(array($s_pass,$s_comp,$s_name,$s_add,$s_tel,$s_mail,$s_post,$s_code));
 
 ?>
 <table  border="3" align="center" width=800 >
@@ -49,6 +51,14 @@
 	?>
 	</td>
 </tr>
+<tr>	<td width=180>郵便番号</td>
+	<td>
+	<?php
+		echo $h_pos2;
+	?>	
+	</td>
+</tr>
+
 <tr><td width = 300 >住所</td>
 	<td>
 	<?php

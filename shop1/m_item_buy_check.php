@@ -1,4 +1,15 @@
 ﻿<?php
+	require 'common.php';
+	if(!isset($_SESSION['cart'])){
+	      		print("<html><head><title>エラー</title></head><body><h1>エラー</h1>");
+      		print("カートに何も入っていません。<br /><br />\n");
+      		print("<a href=\"cart.php\">カート</a>\n");
+      		print("</body></html>");
+      		exit;
+	}
+
+?>
+<?php
 	
 	$m_code = htmlspecialchars($_POST['m_code']);
 	$_SESSION['mb_code'] = $m_code;
@@ -48,7 +59,6 @@
 <caption><h3>商品購入一覧　<font color="#FF0000">もう一度お確かめください</font></h3></caption>
 <tr align="center" valign="center"><td>商品名</td><td>単価（税込）</td><td>注文数</td><td>小計（税込）</td><td>ポイント数</td></tr>
 <?php
-        require 'common.php';
 	$pdo = connect();
 	$sum_pri =0;
 	$sum_poin = 0;
@@ -60,29 +70,36 @@
  ?>
 <tr align="center" valign="center">
 <td><?php echo $row['g_name']; ?></td> <!-- 商品名 -->
-<td><?php echo $row['g_pri']; ?>円</td> <!-- 単価 -->
+<td><?php echo number_format($row['g_pri']); ?>円</td> <!-- 単価 -->
 <td><?php echo $num; ?></td>  <!-- 注文数 -->
-<td><?php echo $row['g_pri'] * $num; $sum_pri += $row['g_pri'] * $num;?>円</td> <!-- 小計 -->
-<td><?php echo $row['g_pri'] * $num * 0.1; $sum_poin += $row['g_pri'] * $num * 0.1;  ?>pt</td> <!-- ポイント -->
+<td><?php echo number_format($row['g_pri'] * $num); $sum_pri += $row['g_pri'] * $num;?>円</td> <!-- 小計 -->
+<td><?php echo number_format($row['g_pri'] * $num * 0.1); $sum_poin += $row['g_pri'] * $num * 0.1;  ?>pt</td> <!-- ポイント -->
 </tr>
 <?php	
 	} 
 ?>
-<tr align="center" valign="center"><td>ポイント値引き</td><td></td><td></td>
+<tr align="center" valign="center"><td>ポイント値引き</td><td colspan="2"></td>
 <?php
 	$arr_chk   = $_POST['point'];
 	$m_point = 0;
 	$on ="0";
+	$flg=0;
 	if($arr_chk[0] == "1"){
 	  $st = $pdo->prepare("SELECT * FROM point WHERE p_m_code = ? ;");
           $st->execute(array($m_code));
           $row = $st->fetch();
 	  $m_point = $row['p_poin'];
+	  if($m_point > $sum_pri){
+		$a_point = $sum_pri;
+	  	$nokori_poin = $m_point - $sum_pri; 
+		$flg=1;
+		$sum_poin = 0; 
+	  }
 	  $on = "1";
 	}	
 ?>
-<td>-<?php echo $m_point; $sum_pri = $sum_pri - $m_point; ?>円</td><td>-<?php echo $m_point; ?>pt</td></tr>
-<tr align="center" valign="center"><td>合計</td><td></td><td></td><td><?php echo $sum_pri; ?>円</td><td><?php echo $sum_poin; ?>pt</td></tr>
+<td>-<?php if($flg == 1){echo number_format($sum_pri);} else {echo number_format($m_point);} ?>円</td><td>-<?php if($flg == 1){echo number_format($sum_pri);} else{echo number_format($m_point);} $sum_pri = $sum_pri - $m_point; ?>pt</td></tr>
+<tr align="center" valign="center"><td>合計</td><td colspan="2"></td><td><?php if($sum_pri < 0){	$sum_pri = 0;	} echo number_format($sum_pri); ?>円</td><td><?php echo number_format($sum_poin); ?>pt</td></tr>
 </table>
 <br>
 <center><font color="#FF0000">商品を削除する場合はカートで行ってください</font><br>
@@ -106,6 +123,7 @@ while ($row = $stmt->fetch()) {
      $h_tel = htmlspecialchars($row['m_tel']);
      $h_mail = htmlspecialchars($row['m_mail']);
      $m_code = htmlspecialchars($row['m_code']);
+     $m_post = htmlspecialchars($row['m_post']);
 }
 ?>
 <!-- テーブル表示 -->
@@ -122,6 +140,24 @@ while ($row = $stmt->fetch()) {
 	?>
 	</td>
 </tr>
+<tr>	<td width=180>宛先郵便番号</td>
+	<td>
+	<?php
+		$b_pos = $m_post % 10000;
+		$f_pos = $m_post / 10000;
+		$f_pos = (int) $f_pos;
+		$h_pos = $f_pos."-".$b_pos;
+		echo $h_pos;
+		echo "<input type=\"hidden\" name=\"bf_pos\" value=\""; 
+		echo $f_pos.$b_pos;
+		echo "\" />";
+		echo "<input type=\"hidden\" name=\"h_pos\" value=\""; 
+		echo $h_pos;
+		echo "\" />";
+	?>
+	</td>
+</tr>
+
 <tr>	<td width=180>宛先住所</td>
 	<td>
 	<?php 
@@ -151,6 +187,9 @@ while ($row = $stmt->fetch()) {
 		echo "\" />";
 		echo "<input type=\"hidden\" name=\"on\" value=\""; 
 		echo $on;
+		echo "\" />";
+		echo "<input type=\"hidden\" name=\"mb_code\" value=\""; 
+		echo $m_code;
 		echo "\" />";
 	?>		
 	</td>

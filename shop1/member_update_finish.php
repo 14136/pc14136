@@ -10,10 +10,12 @@
 	$m_add = htmlspecialchars($_POST['m_add']);
 	$m_tel = htmlspecialchars($_POST['m_tel']);
 	$m_mail = htmlspecialchars($_POST['m_mail']);
+	$m_pos = htmlspecialchars($_POST['bf_pos']);
+	$h_pos2 = htmlspecialchars($_POST['h_pos']);
         require 'common.php';
 	$pdo = connect();
-        $st = $pdo->prepare("UPDATE member SET m_pass= ?,m_name= ?,m_add= ?,m_tel=?,m_mail= ? WHERE m_code= ?;");
-        $st->execute(array($m_pass,$m_name,$m_add,$m_tel,$m_mail,$m_code));	
+        $st = $pdo->prepare("UPDATE member SET m_pass= ?,m_name= ?,m_add= ?,m_tel=?,m_mail= ?,m_post= ?WHERE m_code= ?;");
+        $st->execute(array($m_pass,$m_name,$m_add,$m_tel,$m_mail,$m_pos,$m_code));	
 
 ?>
 
@@ -34,6 +36,14 @@
 	?>
 	</td>
 </tr>
+<tr>	<td width=180>郵便番号</td>
+	<td>
+	<?php
+		echo $h_pos2;
+	?>	
+	</td>
+</tr>
+
 <tr><td width = 300 >住所</td>
 	<td>
 	<?php
