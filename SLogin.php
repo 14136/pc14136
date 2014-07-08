@@ -5,8 +5,6 @@
   </head>
   <body>
     <p>販売会員コードとパスワードを入力してください</p>
-    <p>販売会員コード：1</p>
-    <p>パスワード：1234</p>
     <form action="SLogin2.php" method="post">
       <table border="1">
         <tr>
