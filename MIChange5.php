@@ -30,7 +30,6 @@
       $result = mysql_query($sqlstr);
       $data = mysql_fetch_array($result);
 
-      echo $data['cnt'];
       if($data['cnt'] == 0){
         $sqlstr = "SELECT COUNT(*) AS cnt " .
                             "FROM discount " .
@@ -55,7 +54,6 @@
         $sqlstr = "DELETE FROM goods " .
                             "WHERE g_code = " . $_SESSION['g_code'];
         $result = mysql_query($sqlstr);
-        $data = mysql_fetch_array($result);
         echo '<p>商品を削除しました</p>';
       }else{
         echo '<p>未発送の商品があります</p><p>削除を実行できません</p>';
