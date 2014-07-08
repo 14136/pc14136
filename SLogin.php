@@ -7,7 +7,7 @@
     <br><br><br><br>
     <p>販売会員コードとパスワードを入力してください</p>
     <form action="SLogin2.php" method="post">
-      <table border="1">
+      <table border="1" align="center">
         <tr>
           <td>会員コード</td>
           <td><input type="text" name="s_code"></td>
