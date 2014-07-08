@@ -4,8 +4,8 @@
     <title>ログイン</title>
   </head>
   <body align="center">
-    <br><br><br><br>
-    <p>販売会員コードとパスワードを入力してください</p>
+    <br><br><br><br><br>
+    <p>販売会員コードとパスワードを入力してください</p><br>
     <form action="SLogin2.php" method="post">
       <table border="1" align="center">
         <tr>
