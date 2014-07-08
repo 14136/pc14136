@@ -9,7 +9,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>販売会員メインメニュー</title>
   </head>
-  <body>
+  <body align="center">
+    <br><br><br><br><br>
     <?php
       //session_start();
       print("<p>".$_SESSION['s_name']."さんようこそ</p>");
