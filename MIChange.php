@@ -15,7 +15,7 @@
     <p>変更または削除する商品を選択してください</p>
     <table border=1><tr><th></th><th>商品名</th><th>商品説明</th><th>画像</th><th>価格</th></tr>
     <?php
-      session_start();
+      //session_start();
       $s_code = $_SESSION['s_code'];
 
       $con = mysql_connect('172.20.17.202', 'admin', '1111');
