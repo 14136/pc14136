@@ -31,23 +31,23 @@
       $data = mysql_fetch_array($result);
 
       echo $data['cnt'];
-      if($data === null){
-        $sqlstr = "SELECT COUNT(*) " .
+      if($data['cnt'] == 0){
+        $sqlstr = "SELECT COUNT(*) AS cnt " .
                             "FROM discount " .
                             "WHERE d_g_code = " . $_SESSION['g_code'];
         $result = mysql_query($sqlstr);
         $data = mysql_fetch_array($result);
-        if($data != 0){
+        if($data['cnt'] != 0){
           $sqlstr = "DELETE FROM discount " .
                             "WHERE d_g_code = " . $_SESSION['g_code'];
           $result = mysql_query($sqlstr);
         }
-        $sqlstr = "SELECT COUNT(*) " .
+        $sqlstr = "SELECT COUNT(*) AS cnt " .
                             "FROM history " .
                             "WHERE h_g_code = " . $_SESSION['g_code'];
         $result = mysql_query($sqlstr);
         $data = mysql_fetch_array($result);
-        if($data != 0){
+        if($data['cnt'] != 0){
           $sqlstr = "DELETE FROM history " .
                             "WHERE h_g_code = " . $_SESSION['g_code'];
           $result = mysql_query($sqlstr);
