@@ -1,7 +1,7 @@
 ﻿<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>商品情報変更</title>
+    <title>商品情報変更・削除</title>
   </head>
   <body>
     <?php

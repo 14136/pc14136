@@ -1,10 +1,10 @@
 ﻿<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>商品情報変更</title>
+    <title>商品情報変更・削除</title>
   </head>
   <body>
-    <p>商品情報を変更します</p>
+    <p>変更する情報を入力してください</p>
     <form action="MIChange3.php" method="post" enctype="multipart/form-data">
       <table border=1><tr><th>商品名</th><th>商品説明</th><th>画像</th><th>価格</th></tr>
       <?php
@@ -49,8 +49,8 @@
 
       ?>
       </table>
-      <input type="submit" value="変更を登録する">
+      <input type="submit" value="変更を登録する"><input type="button" value="商品を削除する" onClick="location.href='http://172.20.17.202/kome/MIChange5.php'">
     </form>
-    <input type="button" value="この商品を削除する" onClick="location.href='http://172.20.17.202/kome/MIChange5.php'">
+    
   </body>
 </html>

@@ -1,11 +1,11 @@
 ﻿<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>商品情報変更</title>
+    <title>商品情報変更・削除</title>
   </head>
   <body>
     <form method="post" action="MIChange2.php">
-    <p>変更する商品を選択してください</p>
+    <p>変更または削除する商品を選択してください</p>
     <table border=1><tr><th></th><th>商品名</th><th>商品説明</th><th>画像</th><th>価格</th></tr>
     <?php
       session_start();
@@ -50,7 +50,7 @@
 
     ?>
     </table> 
-    <p><input type="submit" value="変更する" ><input type="button" value="メニューに戻る" onClick="location.href='http://172.20.17.202/kome/SMemberMenu.php'"></p>
+    <p><input type="submit" value="変更または削除する" ><input type="button" value="メニューに戻る" onClick="location.href='http://172.20.17.202/kome/SMemberMenu.php'"></p>
     </form>
   </body>
 </html>
