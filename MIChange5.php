@@ -29,7 +29,7 @@
                             " AND h_pri = 0";
       $result = mysql_query($sqlstr);
       $data = mysql_fetch_array($result);
-
+      echo $data;
       if($data === null){
         $sqlstr = "SELECT COUNT(*) " .
                             "FROM discount " .
