@@ -14,7 +14,7 @@
     <?php
       //session_start();
       print("<p>".$_SESSION['s_name']."さんようこそ</p>");
-    ?>
+    ?><br>
     <p><a href="http://172.20.17.202/kome/MIRegistration.php">商品情報登録</a></p>
     <p><a href="http://172.20.17.202/kome/MIChange.php">商品情報変更・削除</a></p>
     <p><a href="http://172.20.17.202/kome/OHCheck.php">注文履歴確認</a></p>
