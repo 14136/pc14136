@@ -25,17 +25,6 @@
 </tr>
 
 
-<tr>	<td width=180>宛先住所</td>
-	<td>
-	<?php 
-		$m_add = htmlspecialchars($_POST['m_add']);
-		echo $m_add;
-		echo "<input type=\"hidden\" name=\"m_add\" value=\""; 
-		echo $m_add;
-		echo "\" />";
-	?>		
-	</td>
-</tr>
 
 <tr>	<td width=180>電話番号</td>
 	<td>
@@ -62,6 +51,60 @@
 </tr>
 
 
+<tr>	<td width=180>郵便番号</td>
+	<td>
+	<?php
+		$m_pass = htmlspecialchars($_POST['m_post']);
+		echo $m_post;
+		echo "<input type=\"hidden\" name=\"m_post\" value=\""; 
+		echo $m_post;
+		echo "\" />";
+	?>
+	
+</tr>
+
+
+
+<tr>	<td width=180>都道府県</td>
+	<td>
+	<?php
+		$m_add1 = htmlspecialchars($_POST['m_add1']);
+		echo $m_add1;
+		echo "<input type=\"hidden\" name=\"m_add1\" value=\""; 
+		echo $m_add1;
+		echo "\" />";
+	?>
+	
+</tr>
+
+
+
+<tr>	<td width=180>市町村</td>
+	<td>
+	<?php
+		$m_add2 = htmlspecialchars($_POST['m_add2']);
+		echo $m_add2;
+		echo "<input type=\"hidden\" name=\"m_add2\" value=\""; 
+		echo $m_add2;
+		echo "\" />";
+	?>
+	
+</tr>
+
+
+<tr>	<td width=180>建物名</td>
+	<td>
+	<?php
+		$m_add3 = htmlspecialchars($_POST['m_add3']);
+		echo $m_add3;
+		echo "<input type=\"hidden\" name=\"m_add3\" value=\""; 
+		echo $m_add3;
+		echo "\" />";
+	?>
+	
+</tr>
+
+
 <tr>	<td width=180>パスワード</td>
 	<td>
 	<?php
@@ -74,12 +117,13 @@
 	
 </tr>
 
+
 </table>
 <br>
 
 
 <center><input type="submit" value="確定">
-&nbsp;<input type="submit" value="訂正"><a href="/m_entry.php" ></center>
+&nbsp;<input type="submit" value="訂正"><a href="/m_entry.html" ></center>
 </form>
 </body>
 

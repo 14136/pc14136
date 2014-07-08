@@ -16,7 +16,7 @@ body {
    text-align: center;
  }
  table {
-   width: 500px; 
+   width: 50%;
    margin: 15px auto;
    padding: 0;
    background-color: #fff;
@@ -34,7 +34,7 @@ body {
    font-weight: bold;
  }
  .base {
-   width: 480px; 
+   width: 48%; 
    margin: 15px auto;
    padding: 10px;
    background-color: #eee;
